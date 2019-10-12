@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.skusamzas.R;
 
-public class DinnerFragment extends Fragment {
+public class IngredienceList extends Fragment {
 
     @Nullable
     @Override

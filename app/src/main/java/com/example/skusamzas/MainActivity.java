@@ -16,8 +16,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.example.skusamzas.Fragments.DessertFragment;
-import com.example.skusamzas.Fragments.DinnerFragment;
+import com.example.skusamzas.Fragments.FragmentCookingIdeas;
 import com.example.skusamzas.Fragments.VeganFragment;
 import com.google.android.material.navigation.NavigationView;
 
@@ -48,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DessertFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentCookingIdeas()).commit();
             navigationView.setCheckedItem(R.id.nav_dessert);
         }
 
@@ -66,11 +65,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case R.id.nav_dessert:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DessertFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentCookingIdeas()).commit();
                 break;
 
             case R.id.nav_dinner:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DinnerFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentCookingIdeas()).commit();
                 break;
 
             case R.id.nav_vegan:

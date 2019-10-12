@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 import com.example.skusamzas.R;
 
 
-public class mainOpeningFragment extends Fragment {
+public class Recipe extends Fragment {
 
 private static final String KEY_TITLE= "Content";
-    public mainOpeningFragment() {
+    public Recipe() {
         // Required empty public constructor
     }
 
