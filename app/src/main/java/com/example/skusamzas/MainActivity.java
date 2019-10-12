@@ -1,19 +1,20 @@
 package com.example.skusamzas;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
 import com.example.skusamzas.Fragments.DessertFragment;
 import com.example.skusamzas.Fragments.DinnerFragment;
@@ -23,30 +24,33 @@ import com.google.android.material.navigation.NavigationView;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
+    Button logoutB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        logoutB = findViewById(R.id.nav_logout);
+
         setContentView(R.layout.activity_main);
         setTitle(null);
 
-        Toolbar toolbar= findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         drawer = findViewById(R.id.drawer_layout);
 
-        NavigationView navigationView= findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer,toolbar , R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        if(savedInstanceState==null){
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new DessertFragment()).commit();
-        navigationView.setCheckedItem(R.id.nav_dessert);}
-
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DessertFragment()).commit();
+            navigationView.setCheckedItem(R.id.nav_dessert);
+        }
 
 
     }
@@ -60,23 +64,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        switch (menuItem.getItemId()){
+        switch (menuItem.getItemId()) {
             case R.id.nav_dessert:
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new DessertFragment()).commit();
-            break;
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DessertFragment()).commit();
+                break;
 
             case R.id.nav_dinner:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new DinnerFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DinnerFragment()).commit();
                 break;
 
             case R.id.nav_vegan:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new VeganFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new VeganFragment()).commit();
                 break;
 
             case R.id.nav_send:
                 Toast.makeText(this, "share", Toast.LENGTH_SHORT).show();
                 break;
 
+            case R.id.nav_logout:
+                logout();
+                break;
 
 
         }
@@ -85,12 +92,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-   /* public  void logout(View view){
+    public void logout() {
         SharedPreferences sharedpreferences = getSharedPreferences(Login.MyPREFERENCES, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedpreferences.edit();
         editor.clear();
         editor.commit();
-    }*/
+        sendToLogin();
+    }
+
+    private void sendToLogin() {
+
+        Intent loginIntent = new Intent(MainActivity.this, Login.class);
+        startActivity(loginIntent);
+        finish();
+
+    }
 
    /* private void getData() {
     }
