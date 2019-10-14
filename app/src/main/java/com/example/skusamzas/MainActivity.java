@@ -17,7 +17,9 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.skusamzas.Fragments.FragmentCookingIdeas;
+import com.example.skusamzas.Fragments.IngredienceList;
 import com.example.skusamzas.Fragments.VeganFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -39,6 +41,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         drawer = findViewById(R.id.drawer_layout);
 
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav.setOnNavigationItemSelectedListener(navListener);
+
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -53,6 +58,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+
+                    switch (item.getItemId()) {
+                        case R.id.homeButton:
+                            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentCookingIdeas()).commit();
+                            break;
+                        case R.id.saveRecipe:
+                            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new IngredienceList()).commit();
+                            break;
+                        case R.id.ingredients:
+                            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new IngredienceList()).commit();
+                            break;
+                        case R.id.filter:
+                            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentCookingIdeas()).commit();
+                            break;
+                    }
+
+
+
+                    return true;
+                }
+            };
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -107,24 +139,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-   /* private void getData() {
-    }
 
-    private void initItems() {
 
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.drawer_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        return super.onOptionsItemSelected(item);
-    }*/
 
     @Override
     public void onBackPressed() {

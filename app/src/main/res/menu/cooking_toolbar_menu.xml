@@ -3,10 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/search"
-        android:icon="@drawable/ic_search"
+        android:id="@+id/homeButton"
+        android:icon="@drawable/ic_homepage"
         app:showAsAction="always"
-        android:title="Search">
+        android:title="Home">
+    </item>
+    <item
+        android:id="@+id/ingredients"
+        android:icon="@drawable/ic_ingrediencelist"
+        app:showAsAction="always"
+        android:title="My ingredients">
     </item>
     <item
         android:id="@+id/saveRecipe"
@@ -20,10 +26,5 @@
         app:showAsAction="always"
         android:title="Filter">
     </item>
-    <item
-        android:id="@+id/ingredients"
-        android:icon="@drawable/ic_ingrediencelist"
-        app:showAsAction="always"
-        android:title="My ingredients">
-    </item>
+
 </menu>

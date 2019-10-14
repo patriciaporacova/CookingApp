@@ -2,58 +2,63 @@ package com.example.skusamzas.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.skusamzas.R;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.example.skusamzas.Recipes;
+import com.example.skusamzas.adapters.RecipeAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class FragmentCookingIdeas extends Fragment {
 
+    private RecipeAdapter adapter;
+    private List<Recipes> recipes;
     View view;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-         view = inflater.inflate(R.layout.fragment_cooking_ideas, container, false);
+        setHasOptionsMenu(true);
+        FragmentActivity act = getActivity();
+        view = inflater.inflate(R.layout.fragment_cooking_ideas, container, false);
+        fillExampleList();
+        RecyclerView recyclerView = view.findViewById(R.id.recycler_view_recipes);
+        recyclerView.setHasFixedSize(true);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(act, 2, GridLayoutManager.VERTICAL, false);
 
-        BottomNavigationView bottomNav = view.findViewById(R.id.bottom_navigation);
-        bottomNav.setOnNavigationItemSelectedListener(navListener);
+        adapter = new RecipeAdapter(recipes);
+
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
+
 
         return view;
 
 
+
+
     }
 
-    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
-            new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                    Fragment selectedFragment = null;
 
-                    switch (item.getItemId()) {
-                        case R.id.saveRecipe:
-                            selectedFragment = new VeganFragment();
-                            break;
-                        case R.id.search:
-                            selectedFragment = new VeganFragment();
-                            break;
-                        case R.id.ingredients:
-                            selectedFragment = new VeganFragment();
-                            break;
-                        case R.id.filter:
-                            selectedFragment = new VeganFragment();
-                            break;
-                    }
+    //TODO fill it with database ingredients
+    private void fillExampleList() {
+        recipes = new ArrayList<>();
+        recipes.add(new Recipes("Best pancakes you ever had", "4","20-30", R.drawable.pancakes ));
+        recipes.add(new Recipes("Vegan poke bowl", "3","20-30", R.drawable.pokebowl ));
+        recipes.add(new Recipes("Original spaghetti with meatbowls", "4","30-40", R.drawable.spahetti ));
+        recipes.add(new Recipes("Cheese kari risotto", "2","25-30", R.drawable.risotto ));
+        recipes.add(new Recipes("Chicken alfredo pasta", "2","20-30", R.drawable.pasta ));
+        recipes.add(new Recipes("Grandma's apple pie", "12","50-60", R.drawable.pie ));
 
-                    getFragmentManager() .beginTransaction().replace(R.id.fragment_container,
-                            selectedFragment).commit();
+    }
 
-                    return true;
-                }
-            };
 }
