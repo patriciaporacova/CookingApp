@@ -15,17 +15,36 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.skusamzas.Fragments.FragmentCookingIdeas;
 import com.example.skusamzas.Fragments.IngredienceList;
 import com.example.skusamzas.Fragments.VeganFragment;
+import com.example.skusamzas.adapters.CategoryAdapter;
+import com.example.skusamzas.adapters.RandomRecipeAdapter;
+import com.example.skusamzas.model.Categories;
+import com.example.skusamzas.model.Meals;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, HomeView {
 
     private DrawerLayout drawer;
     Button logoutB;
+
+    @BindView(R.id.viewPagerHeader)
+    ViewPager viewPagerRandomRecipe;
+    @BindView(R.id.recyclerCategory)
+    RecyclerView recyclerViewCategory;
+
+    HomePresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +70,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        if (savedInstanceState == null) {
+        ButterKnife.bind(this);
+        presenter = new HomePresenter(this);
+        presenter.getMeals();
+        presenter.getCategories();
+
+       /* if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentCookingIdeas()).commit();
             navigationView.setCheckedItem(R.id.nav_dessert);
-        }
+        }*/
 
 
     }
@@ -79,7 +103,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentCookingIdeas()).commit();
                             break;
                     }
-
 
 
                     return true;
@@ -140,8 +163,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-
-
     @Override
     public void onBackPressed() {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -152,4 +173,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
+
+
+    @Override
+    public void setMeal(List<Meals.Meal> meal) {
+        RandomRecipeAdapter recipeAdapter = new RandomRecipeAdapter(meal, this);
+        viewPagerRandomRecipe.setAdapter(recipeAdapter);
+        viewPagerRandomRecipe.setPadding(20, 0, 150, 0);
+        recipeAdapter.notifyDataSetChanged();
+
+    }
+
+    @Override
+    public void setCategory(List<Categories.Category> category) {
+        CategoryAdapter categoryAdapter = new CategoryAdapter(category, this);
+        recyclerViewCategory.setAdapter(categoryAdapter);
+        GridLayoutManager layoutManager = new GridLayoutManager(this, 3, GridLayoutManager.VERTICAL, false);
+        recyclerViewCategory.setLayoutManager(layoutManager);
+        recyclerViewCategory.setNestedScrollingEnabled(true);
+        categoryAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onErrorLoading(String message) {
+        Utils.showDialogMessage(this, "title", message);
+    }
 }

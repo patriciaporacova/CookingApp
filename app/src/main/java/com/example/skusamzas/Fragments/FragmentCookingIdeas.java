@@ -29,6 +29,9 @@ public class FragmentCookingIdeas extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
         FragmentActivity act = getActivity();
+
+
+
         view = inflater.inflate(R.layout.fragment_cooking_ideas, container, false);
         fillExampleList();
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view_recipes);
