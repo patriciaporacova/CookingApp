@@ -10,19 +10,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.skusamzas.R;
-import com.example.skusamzas.Recipes;
+import com.example.skusamzas.model.Recipes;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder> {
 
     private List<Recipes> recipeList;
-    private List<Recipes> recipeListFull;
 
     public RecipeAdapter(List<Recipes> recipeList) {
         this.recipeList = recipeList;
-        recipeListFull = new ArrayList<>(recipeList);
     }
 
 

@@ -1,13 +1,9 @@
 package com.example.skusamzas;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -15,44 +11,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
 
 import com.example.skusamzas.Fragments.FragmentCookingIdeas;
+import com.example.skusamzas.Fragments.Home;
 import com.example.skusamzas.Fragments.IngredienceList;
-import com.example.skusamzas.Fragments.VeganFragment;
-import com.example.skusamzas.adapters.CategoryAdapter;
-import com.example.skusamzas.adapters.RandomRecipeAdapter;
-import com.example.skusamzas.model.Categories;
-import com.example.skusamzas.model.Meals;
+import com.example.skusamzas.activities.Login;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
-import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, HomeView {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
-    Button logoutB;
-
-    @BindView(R.id.viewPagerHeader)
-    ViewPager viewPagerRandomRecipe;
-    @BindView(R.id.recyclerCategory)
-    RecyclerView recyclerViewCategory;
-
-    HomePresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        logoutB = findViewById(R.id.nav_logout);
-
         setContentView(R.layout.activity_main);
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new Home()).commit();
         setTitle(null);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -70,43 +47,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        ButterKnife.bind(this);
-        presenter = new HomePresenter(this);
-        presenter.getMeals();
-        presenter.getCategories();
-
-       /* if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentCookingIdeas()).commit();
-            navigationView.setCheckedItem(R.id.nav_dessert);
-        }*/
-
 
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
-            new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-
-                    switch (item.getItemId()) {
-                        case R.id.homeButton:
-                            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentCookingIdeas()).commit();
-                            break;
-                        case R.id.saveRecipe:
-                            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new IngredienceList()).commit();
-                            break;
-                        case R.id.ingredients:
-                            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new IngredienceList()).commit();
-                            break;
-                        case R.id.filter:
-                            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentCookingIdeas()).commit();
-                            break;
-                    }
-
-
-                    return true;
+            item -> {
+                switch (item.getItemId()) {
+                    case R.id.homeButton:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Home()).commit();
+                        break;
+                    case R.id.saveRecipe:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Home()).commit();
+                        break;
+                    case R.id.ingredients:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new IngredienceList()).commit();
+                        break;
+                    case R.id.shopList:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentCookingIdeas()).commit();
+                        break;
                 }
+                return true;
             };
 
     @Override
@@ -119,49 +79,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
-            case R.id.nav_dessert:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentCookingIdeas()).commit();
-                break;
+
 
             case R.id.nav_dinner:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentCookingIdeas()).commit();
                 break;
 
-            case R.id.nav_vegan:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new VeganFragment()).commit();
-                break;
-
-            case R.id.nav_send:
-                Toast.makeText(this, "share", Toast.LENGTH_SHORT).show();
-                break;
-
             case R.id.nav_logout:
-                logout();
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(MainActivity.this, Login.class));
                 break;
-
-
         }
 
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-    public void logout() {
-        SharedPreferences sharedpreferences = getSharedPreferences(Login.MyPREFERENCES, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedpreferences.edit();
-        editor.clear();
-        editor.commit();
-        sendToLogin();
-    }
-
-    private void sendToLogin() {
-
-        Intent loginIntent = new Intent(MainActivity.this, Login.class);
-        startActivity(loginIntent);
-        finish();
-
-    }
-
 
     @Override
     public void onBackPressed() {
@@ -170,32 +102,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             super.onBackPressed();
         }
-    }
-
-
-
-
-    @Override
-    public void setMeal(List<Meals.Meal> meal) {
-        RandomRecipeAdapter recipeAdapter = new RandomRecipeAdapter(meal, this);
-        viewPagerRandomRecipe.setAdapter(recipeAdapter);
-        viewPagerRandomRecipe.setPadding(20, 0, 150, 0);
-        recipeAdapter.notifyDataSetChanged();
-
-    }
-
-    @Override
-    public void setCategory(List<Categories.Category> category) {
-        CategoryAdapter categoryAdapter = new CategoryAdapter(category, this);
-        recyclerViewCategory.setAdapter(categoryAdapter);
-        GridLayoutManager layoutManager = new GridLayoutManager(this, 3, GridLayoutManager.VERTICAL, false);
-        recyclerViewCategory.setLayoutManager(layoutManager);
-        recyclerViewCategory.setNestedScrollingEnabled(true);
-        categoryAdapter.notifyDataSetChanged();
-    }
-
-    @Override
-    public void onErrorLoading(String message) {
-        Utils.showDialogMessage(this, "title", message);
     }
 }

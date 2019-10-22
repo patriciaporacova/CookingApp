@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.skusamzas.R;
-import com.example.skusamzas.Recipes;
+import com.example.skusamzas.model.Recipes;
 import com.example.skusamzas.adapters.RecipeAdapter;
 
 import java.util.ArrayList;
@@ -29,12 +29,9 @@ public class FragmentCookingIdeas extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
         FragmentActivity act = getActivity();
-
-
-
-        view = inflater.inflate(R.layout.fragment_cooking_ideas, container, false);
+        view = inflater.inflate(R.layout.recycler_view, container, false);
         fillExampleList();
-        RecyclerView recyclerView = view.findViewById(R.id.recycler_view_recipes);
+        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(act, 2, GridLayoutManager.VERTICAL, false);
 
@@ -43,12 +40,7 @@ public class FragmentCookingIdeas extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
-
         return view;
-
-
-
-
     }
 
 

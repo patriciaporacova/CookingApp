@@ -2,6 +2,7 @@
     <string name="app_name">Yummy</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
     <string name="menu_cookingIdeas">Cooking Ideas</string>
     <string name="menu_dinner">Dinners</string>
     <string name="menu_onePot">One Pot Recipes</string>
@@ -15,8 +16,33 @@
     <string name="menu_mealPrep">Meal Prep</string>
     <string name="menu_myCookBook">My Cook Book</string>
     <string name="Settings">Profile</string>
+
+    <string name="toolbar_search">Search</string>
+    <string name="subtoolbar_save">Save</string>
+    <string name="subtoolbar_myIngredients">My ingredients</string>
+    <string name="subtoolbar_home">Home</string>
+    <string name="subtoolbar_shoppingList">Shopping Lists</string>
+
+
     <string name="Hello">Hello</string>
-    <string name="Slogan">Discover. Create. Cook.</string>
+    <string name="HeaderSlogan">Discover. Create. Cook.</string>
+
+    <string name="hint_name">Name</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_password_repeat">Repeat Password</string>
+
+    <string name="button_login">Log in</string>
+    <string name="button_register">Register</string>
+
+    <string name="categories">Pick a category</string>
+
+    <string name="instructions">Preheat oven to 350° F. Spray a 9x13-inch baking pan with non-stick spray. Combine soy sauce, ½ cup water, brown sugar, ginger and garlic in a small saucepan and cover. Bring to a boil over medium heat. Remove lid and cook for one minute once boiling. Meanwhile, stir together the corn starch and 2 tablespoons of water in a separate dish until smooth. Once sauce is boiling, add mixture to the saucepan and stir to combine. Cook until the sauce starts to thicken then remove from heat. Place the chicken breasts in the prepared pan. Pour one cup of the sauce over top of chicken. Place chicken in oven and bake 35 minutes or until cooked through. Remove from oven and shred chicken in the dish using two forks. *Meanwhile, steam or cook the vegetables according to package directions. Add the cooked vegetables and rice to the casserole dish with the chicken. Add most of the remaining sauce, reserving a bit to drizzle over the top when serving. Gently toss everything together in the casserole dish until combined. Return to oven and cook 15 minutes. Remove from oven and let stand 5 minutes before serving. Drizzle each serving with remaining sauce. Enjoy!"</string>
+
+
+
+
+
 
 
 

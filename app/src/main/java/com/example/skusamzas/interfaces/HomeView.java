@@ -1,4 +1,4 @@
-package com.example.skusamzas;
+package com.example.skusamzas.interfaces;
 
 import com.example.skusamzas.model.Categories;
 import com.example.skusamzas.model.Meals;

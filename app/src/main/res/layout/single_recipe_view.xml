@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:id="@+id/single_recipe_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+            <ImageView
+                android:id="@+id/single_recipe_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pancakes"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="0dp"></ImageView>
+
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/ic_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/single_recipe_image" />
+
+            <TextView
+                android:id="@+id/single_recipe_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/single_recipe_image"
+                android:layout_marginTop="20dp"
+                android:text="Pancakes"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="22sp"
+                app:layout_constraintTop_toBottomOf="@+id/single_recipe_image"></TextView>
+
+            <TextView
+                android:id="@+id/single_recipe_tags"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="random tag | random tag"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                app:layout_constraintTop_toBottomOf="@+id/single_recipe_title"></TextView>
+
+            <TextView
+                android:id="@+id/single_recipe_timeandservings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="10 servings, 30 mins"
+                android:textAlignment="center"
+                app:layout_constraintTop_toBottomOf="@+id/single_recipe_tags"></TextView>
+
+
+            <View
+                android:id="@+id/youtube_recipe"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/single_recipe_timeandservings"
+                android:background="@color/colorPrimary">
+
+            </View>
+
+            <!--<com.google.android.youtube.player.YouTubePlayerView
+                android:id="@+id/youtube_recipe"
+                android:layout_width="355dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/single_recipe_tags" />-->
+
+            <TextView
+                android:id="@+id/single_recipe_title_Ingredients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/single_recipe_image"
+                android:layout_marginTop="20dp"
+                android:text="You will need"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="22sp"
+                app:layout_constraintTop_toBottomOf="@+id/youtube_recipe"></TextView>
+
+            <TextView
+                android:id="@+id/sigle_recipe_ingredients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/youtube_recipe"
+                android:layout_marginStart="20dp"
+                android:text="• 3 dacoho \n • 4 dacoho ineho \n • 5 este ine \n • 1 neviem coho"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/single_recipe_title_Ingredients" />
+
+            <TextView
+                android:id="@+id/single_recipe_title_Instructions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/single_recipe_image"
+                android:layout_marginTop="10dp"
+
+                android:text="Follow the instructions"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="22sp"
+                app:layout_constraintTop_toBottomOf="@+id/sigle_recipe_ingredients"></TextView>
+
+            <TextView
+                android:id="@+id/sigle_recipe_instructions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/youtube_recipe"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="@string/instructions"
+                android:textAlignment="viewStart"
+                app:layout_constraintTop_toBottomOf="@+id/single_recipe_title_Instructions"/>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+    <include
+        android:id="@+id/recipe_subtoolbar"
+        layout="@layout/subtoolbar_single_recipe"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintTop_toBottomOf="@+id/single_recipe_scrollview"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

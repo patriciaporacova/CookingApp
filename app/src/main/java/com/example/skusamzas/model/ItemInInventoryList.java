@@ -1,4 +1,4 @@
-package com.example.skusamzas;
+package com.example.skusamzas.model;
 
 public class ItemInInventoryList {
 

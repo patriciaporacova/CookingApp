@@ -18,7 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.skusamzas.adapters.InventoryAdapter;
-import com.example.skusamzas.ItemInInventoryList;
+import com.example.skusamzas.model.ItemInInventoryList;
 import com.example.skusamzas.R;
 
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class IngredienceList extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
         FragmentActivity act = getActivity();
-        view = inflater.inflate(R.layout.ingredience_list, container, false);
+        view = inflater.inflate(R.layout.recycler_view, container, false);
         fillExampleList();
 
 

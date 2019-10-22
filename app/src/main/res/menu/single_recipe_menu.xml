@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/toolbar_send"
+        android:icon="@drawable/ic_share"
+        app:showAsAction="always"
+        android:title="@string/menu_send">
+    </item>
+
+    <item
+        android:id="@+id/toolbar_save"
+        android:icon="@drawable/ic_heart"
+        app:showAsAction="always"
+        android:title="@string/subtoolbar_save">
+    </item>
+    <item
+        android:id="@+id/toolbar_share"
+        android:icon="@drawable/ic_send"
+        app:showAsAction="always"
+        android:title="@string/menu_share">
+    </item>
+
+
+
+</menu>

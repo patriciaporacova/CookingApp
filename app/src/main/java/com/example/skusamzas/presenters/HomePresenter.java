@@ -1,7 +1,10 @@
-package com.example.skusamzas;
+package com.example.skusamzas.presenters;
 
 import androidx.annotation.NonNull;
 
+
+import com.example.skusamzas.Utils;
+import com.example.skusamzas.interfaces.HomeView;
 import com.example.skusamzas.model.Categories;
 import com.example.skusamzas.model.Meals;
 
@@ -16,7 +19,7 @@ public class HomePresenter {
         this.view = view;
     }
 
-    void getMeals() {
+    public void getMeals() {
 
 
         Call<Meals> mealsCall = Utils.getApi().getMeal();
@@ -43,7 +46,7 @@ public class HomePresenter {
     }
 
 
-    void getCategories() {
+    public void getCategories() {
 
         Call<Categories> categoriesCall = Utils.getApi().getCategories();
         categoriesCall.enqueue(new Callback<Categories>() {

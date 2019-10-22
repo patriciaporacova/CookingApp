@@ -1,6 +1,6 @@
 package com.example.skusamzas;
 
-import android.content.Context;
+import android.view.View;
 
 import androidx.appcompat.app.AlertDialog;
 
@@ -12,8 +12,8 @@ public class Utils {
         return RecipesClient.getFoodClient().create(RecipesAPI.class);
     }
 
-    public static AlertDialog showDialogMessage(Context context, String title, String message) {
-        AlertDialog alertDialog = new AlertDialog.Builder(context).setTitle(title).setMessage(message).show();
+    public static AlertDialog showDialogMessage(View context, String title, String message) {
+        AlertDialog alertDialog = new AlertDialog.Builder(context.getContext()).setTitle(title).setMessage(message).show();
         if (alertDialog.isShowing()) {
             alertDialog.cancel();
         }

@@ -6,25 +6,26 @@
         android:id="@+id/homeButton"
         android:icon="@drawable/ic_homepage"
         app:showAsAction="always"
-        android:title="Home">
+        android:title="@string/subtoolbar_home">
     </item>
     <item
         android:id="@+id/ingredients"
         android:icon="@drawable/ic_ingrediencelist"
         app:showAsAction="always"
-        android:title="My ingredients">
+        android:title="@string/subtoolbar_myIngredients">
     </item>
     <item
         android:id="@+id/saveRecipe"
         android:icon="@drawable/ic_heart"
         app:showAsAction="always"
-        android:title="Save">
+        android:title="@string/subtoolbar_save">
     </item>
     <item
-        android:id="@+id/filter"
-        android:icon="@drawable/ic_filter"
+        android:id="@+id/shopList"
+        android:icon="@drawable/ic_shopping_cart"
         app:showAsAction="always"
-        android:title="Filter">
+        android:title="@string/subtoolbar_shoppingList">
     </item>
+
 
 </menu>

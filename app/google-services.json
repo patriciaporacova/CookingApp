@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "357687031524",
+    "firebase_url": "https://goodyfoody-94ba1.firebaseio.com",
+    "project_id": "goodyfoody-94ba1",
+    "storage_bucket": "goodyfoody-94ba1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357687031524:android:a54336490679864cf61ef1",
+        "android_client_info": {
+          "package_name": "com.example.skusamzas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357687031524-ds0te6t2t7h411g7g4ku3ikd1r2q7rd3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.skusamzas",
+            "certificate_hash": "4adfb2773d055dd38692d404d94b3481673a5177"
+          }
+        },
+        {
+          "client_id": "357687031524-mckf9fi76lcklsbkgcjs1akljdmkuqd9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2KMOmTobNUZZoKpqvfqyEi2pRlYtQgkE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "357687031524-mckf9fi76lcklsbkgcjs1akljdmkuqd9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

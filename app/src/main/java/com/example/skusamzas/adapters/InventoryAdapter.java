@@ -10,7 +10,7 @@ import android.widget.Filterable;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.skusamzas.ItemInInventoryList;
+import com.example.skusamzas.model.ItemInInventoryList;
 import com.example.skusamzas.R;
 
 import java.util.ArrayList;

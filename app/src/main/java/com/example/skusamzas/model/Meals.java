@@ -582,5 +582,21 @@ public class Meals {
             this.dateModified = dateModified;
         }
 
+        public String [][] getIngredients(){
+            String[][] ingredients={ {getStrMeasure1(),getStrIngredient1()}, {getStrMeasure2(),getStrIngredient2()},
+                    {getStrMeasure3(),getStrIngredient3()},{getStrMeasure4(),getStrIngredient4()},
+                    {getStrMeasure5(),getStrIngredient5()},{getStrMeasure6(),getStrIngredient6()},
+                    {getStrMeasure7(),getStrIngredient7()},{getStrMeasure8(),getStrIngredient8()},
+                    {getStrMeasure9(),getStrIngredient9()},{getStrMeasure10(),getStrIngredient10()},
+                    {getStrMeasure11(),getStrIngredient11()},{getStrMeasure12(),getStrIngredient12()},
+                    {getStrMeasure13(),getStrIngredient13()},{getStrMeasure14(),getStrIngredient14()},
+                    {getStrMeasure15(),getStrIngredient15()},{getStrMeasure16(),getStrIngredient16()},
+                    {getStrMeasure17(),getStrIngredient17()},{getStrMeasure18(),getStrIngredient18()},
+                    {getStrMeasure19(),getStrIngredient19()},{getStrMeasure20(),getStrIngredient20()}};
+
+
+            return ingredients;
+        }
+
     }
 }

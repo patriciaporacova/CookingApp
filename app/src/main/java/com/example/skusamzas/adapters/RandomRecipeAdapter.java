@@ -1,6 +1,5 @@
 package com.example.skusamzas.adapters;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,12 +18,10 @@ import java.util.List;
 public class RandomRecipeAdapter extends PagerAdapter {
 
     private List<Meals.Meal> meals;
-    private Context context;
     private static ClickListener clickListener;
 
-    public RandomRecipeAdapter(List<Meals.Meal> meals, Context context) {
+    public RandomRecipeAdapter(List<Meals.Meal> meals) {
         this.meals = meals;
-        this.context = context;
     }
 
     public void setOnItemClickListener(ClickListener clickListener) {
@@ -44,7 +41,7 @@ public class RandomRecipeAdapter extends PagerAdapter {
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        View view = LayoutInflater.from(context).inflate(
+        View view = LayoutInflater.from(container.getContext()).inflate(
                 R.layout.random_recipe_item,
                 container,
                 false

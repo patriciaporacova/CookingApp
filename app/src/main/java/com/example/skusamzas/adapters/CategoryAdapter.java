@@ -1,6 +1,5 @@
 package com.example.skusamzas.adapters;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,21 +21,22 @@ import butterknife.ButterKnife;
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.RecyclerViewHolder> {
 
     private List<Categories.Category> categories;
-    private Context context;
+
     private static ClickListener clickListener;
 
-    public CategoryAdapter(List<Categories.Category> categories, Context context) {
+    public CategoryAdapter(List<Categories.Category> categories) {
         this.categories = categories;
-        this.context = context;
+
     }
 
     @NonNull
     @Override
-    public CategoryAdapter.RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_recycler_category,
-                viewGroup, false);
+    public CategoryAdapter.RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_category,
+                parent, false);
         return new RecyclerViewHolder(view);
     }
+
 
     @Override
     public void onBindViewHolder(@NonNull CategoryAdapter.RecyclerViewHolder viewHolder, int i) {

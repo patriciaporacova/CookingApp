@@ -13,7 +13,7 @@
                     android:id="@+id/nav_dinner"
                     android:icon="@drawable/ic_serving_dish"
                     android:title="@string/menu_dinner" />
-                <item
+                <!--<item
                     android:id="@+id/nav_onePot"
                     android:icon="@drawable/ic_bbq"
                     android:title="@string/menu_onePot" />
@@ -24,7 +24,7 @@
                 <item
                     android:id="@+id/nav_vegan"
                     android:icon="@drawable/ic_vegetables"
-                    android:title="@string/menu_vegan" />
+                    android:title="@string/menu_vegan" /> -->
 
 
             </menu>
@@ -41,10 +41,10 @@
                     android:id="@+id/nav_myCookBook"
                     android:icon="@drawable/ic_open_book"
                     android:title="@string/menu_myCookBook" />
-                <item
+               <!-- <item
                     android:id="@+id/nav_mealPrep"
                     android:icon="@drawable/ic_cooking_time"
-                    android:title="@string/menu_mealPrep" />
+                    android:title="@string/menu_mealPrep" /> -->
                 <item
                     android:id="@+id/nav_groceryList"
                     android:icon="@drawable/ic_shopping_list"
@@ -57,14 +57,14 @@
     <item android:title="Settings">
 
         <menu>
-            <item
+            <!--<item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_share"
                 android:title="@string/menu_share" />
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_send"
-                android:title="@string/menu_send" />
+                android:title="@string/menu_send" />-->
             <item
                 android:id="@+id/nav_settings"
                 android:icon="@drawable/ic_settings"
