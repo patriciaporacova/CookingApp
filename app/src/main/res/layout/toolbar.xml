@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -21,8 +21,8 @@
             android:paddingBottom="5dp"
             android:src="@drawable/goodyfoodylogo"
             android:layout_gravity="center"
-
             />
+
 
     </androidx.appcompat.widget.Toolbar>
 

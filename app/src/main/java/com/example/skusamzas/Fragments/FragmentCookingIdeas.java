@@ -35,7 +35,7 @@ public class FragmentCookingIdeas extends Fragment {
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(act, 2, GridLayoutManager.VERTICAL, false);
 
-        adapter = new RecipeAdapter(recipes);
+        //adapter = new RecipeAdapter(recipes);
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
@@ -47,12 +47,12 @@ public class FragmentCookingIdeas extends Fragment {
     //TODO fill it with database ingredients
     private void fillExampleList() {
         recipes = new ArrayList<>();
-        recipes.add(new Recipes("Best pancakes you ever had", "4","20-30", R.drawable.pancakes ));
-        recipes.add(new Recipes("Vegan poke bowl", "3","20-30", R.drawable.pokebowl ));
-        recipes.add(new Recipes("Original spaghetti with meatbowls", "4","30-40", R.drawable.spahetti ));
-        recipes.add(new Recipes("Cheese kari risotto", "2","25-30", R.drawable.risotto ));
-        recipes.add(new Recipes("Chicken alfredo pasta", "2","20-30", R.drawable.pasta ));
-        recipes.add(new Recipes("Grandma's apple pie", "12","50-60", R.drawable.pie ));
+        recipes.add(new Recipes( "4","20-30"));
+        recipes.add(new Recipes("3","20-30"));
+        recipes.add(new Recipes("4","30-40" ));
+        recipes.add(new Recipes("2","25-30" ));
+        recipes.add(new Recipes("2","20-30" ));
+        recipes.add(new Recipes("12","50-60" ));
 
     }
 

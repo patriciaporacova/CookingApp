@@ -16,6 +16,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.skusamzas.R;
 import com.example.skusamzas.Utils;
+import com.example.skusamzas.activities.CategoryActivity;
 import com.example.skusamzas.activities.Recipe;
 import com.example.skusamzas.adapters.CategoryAdapter;
 import com.example.skusamzas.adapters.RandomRecipeAdapter;
@@ -24,12 +25,16 @@ import com.example.skusamzas.model.Categories;
 import com.example.skusamzas.model.Meals;
 import com.example.skusamzas.presenters.HomePresenter;
 
+import java.io.Serializable;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class Home extends Fragment implements HomeView {
+
+    public static final String EXTRA_CATEGORY = "category";
+    public static final String EXTRA_POSITION = "position";
 
     @BindView(R.id.viewPagerHeader)
     ViewPager viewPagerRandomRecipe;
@@ -79,6 +84,14 @@ public class Home extends Fragment implements HomeView {
         recyclerViewCategory.setLayoutManager(layoutManager);
         recyclerViewCategory.setNestedScrollingEnabled(true);
         categoryAdapter.notifyDataSetChanged();
+
+        categoryAdapter.setOnItemClickListener((view, position) -> {
+            Intent intent = new Intent(getActivity(), CategoryActivity.class);
+
+            intent.putExtra(EXTRA_CATEGORY, (Serializable) category);
+            intent.putExtra(EXTRA_POSITION, position);
+            startActivity(intent);
+        });
     }
 
     @Override

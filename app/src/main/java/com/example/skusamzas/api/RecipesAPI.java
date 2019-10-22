@@ -5,6 +5,7 @@ import com.example.skusamzas.model.Meals;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 public interface RecipesAPI {
     @GET("randomselection.php")
@@ -13,8 +14,8 @@ public interface RecipesAPI {
     @GET("categories.php")
     Call<Categories> getCategories();
 
-    @GET("latest.php")
-    Call<Meals> getDinners();
+    @GET("filter.php")
+    Call<Meals> getMealByCategory(@Query("c")String category);
 
 
 

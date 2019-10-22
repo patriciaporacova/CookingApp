@@ -1,5 +1,6 @@
 package com.example.skusamzas.adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,16 +11,28 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.skusamzas.R;
+import com.example.skusamzas.model.Meals;
 import com.example.skusamzas.model.Recipes;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder> {
 
-    private List<Recipes> recipeList;
+   private List<Recipes> recipeTimesAndServingList;
 
-    public RecipeAdapter(List<Recipes> recipeList) {
-        this.recipeList = recipeList;
+
+    private List<Meals.Meal> meals;
+    private Context context;
+    private static RecipeAdapter.ClickListener clickListener;
+
+    public RecipeAdapter(Context context, List<Meals.Meal> meals, List<Recipes> recipeTimesAndServingList) {
+        this.meals = meals;
+        this.context = context;
+        this.recipeTimesAndServingList=recipeTimesAndServingList;
     }
 
 
@@ -32,32 +45,58 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecipeAdapter.ViewHolder holder, int position) {
-        Recipes currentItem = recipeList.get(position);
-        holder.title.setText(currentItem.getRecipeTitle());
+    public void onBindViewHolder(@NonNull RecipeAdapter.ViewHolder holder, int i) {
+        Recipes currentItem = recipeTimesAndServingList.get(i);
         holder.serving.setText(currentItem.getServings());
         holder.time.setText(currentItem.getTime());
-        holder.image.setImageResource(currentItem.getImage());
+        String strMealThumb = meals.get(i).getStrMealThumb();
+        Picasso.get().load(strMealThumb).placeholder(R.drawable.recipe_img).into(holder.mealThumb);
+
+        String strMealName = meals.get(i).getStrMeal();
+        holder.mealName.setText(strMealName);
+
     }
 
     @Override
     public int getItemCount() {
-        return recipeList.size();
+        return meals.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    public void setOnItemClickListener(ClickListener clickListener) {
+        RecipeAdapter.clickListener = clickListener;
+    }
 
-        TextView title;
+    public interface ClickListener {
+        void onClick(View view, int position);
+    }
+
+    static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+        @BindView(R.id.recipePicture)
+        ImageView mealThumb;
+        @BindView(R.id.recipeTitle)
+        TextView mealName;
+
         TextView serving;
         TextView time;
-        ImageView image;
+
 
         ViewHolder(View itemView) {
             super(itemView);
-            title = itemView.findViewById(R.id.recipeTitle);
+            ButterKnife.bind(this, itemView);
+            itemView.setOnClickListener(this);
             serving = itemView.findViewById(R.id.recipeServings);
             time = itemView.findViewById(R.id.recipeTime);
-            image = itemView.findViewById(R.id.recipePicture);
+
         }
+
+
+        @Override
+        public void onClick(View v) {
+
+        }
+
+
+
+
     }
 }

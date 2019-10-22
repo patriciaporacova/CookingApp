@@ -1,4 +1,4 @@
-package com.example.skusamzas;
+package com.example.skusamzas.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +15,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.skusamzas.Fragments.FragmentCookingIdeas;
 import com.example.skusamzas.Fragments.Home;
 import com.example.skusamzas.Fragments.IngredienceList;
-import com.example.skusamzas.activities.Login;
+import com.example.skusamzas.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
