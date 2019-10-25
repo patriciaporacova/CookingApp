@@ -20,8 +20,6 @@ public class HomePresenter {
     }
 
     public void getMeals() {
-
-
         Call<Meals> mealsCall = Utils.getApi().getMeal();
         mealsCall.enqueue(new Callback<Meals>() {
             @Override

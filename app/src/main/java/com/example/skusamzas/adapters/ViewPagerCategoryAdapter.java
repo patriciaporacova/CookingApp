@@ -22,13 +22,13 @@ public class ViewPagerCategoryAdapter extends FragmentPagerAdapter {
         this.categories = categories;
     }
 
-
-
     @NonNull
     @Override
-    public Fragment getItem(int position) {CategoryFragment fragment = new CategoryFragment();
-    Bundle args = new Bundle();
-    args.putString("EXTRA_DATA_NAME", categories.get(position).getStrCategory());
+    public Fragment getItem(int position) {
+
+        CategoryFragment fragment = new CategoryFragment();
+        Bundle args = new Bundle();
+        args.putString("EXTRA_DATA_NAME", categories.get(position).getStrCategory());
         fragment.setArguments(args);
         return fragment;
     }
@@ -42,4 +42,5 @@ public class ViewPagerCategoryAdapter extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         return categories.get(position).getStrCategory();
-    }}
+    }
+}

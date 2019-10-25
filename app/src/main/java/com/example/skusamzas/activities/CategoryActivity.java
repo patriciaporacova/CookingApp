@@ -25,7 +25,7 @@ public class CategoryActivity extends AppCompatActivity {
 
     @BindView(R.id.categoryTabs)
     TabLayout tabLayout;
-@BindView(R.id.toolbar)
+    @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.categoryViewPager)
     ViewPager viewPager;
@@ -40,27 +40,27 @@ public class CategoryActivity extends AppCompatActivity {
 
         initActionBar();
         initIntent();
-
-
     }
 
     private void initIntent() {
         Intent intent = getIntent();
-        List<Categories.Category> categories = (List<Categories.Category>)intent.getSerializableExtra(Home.EXTRA_CATEGORY);
+        List<Categories.Category> categories = (List<Categories.Category>) intent.getSerializableExtra(Home.EXTRA_CATEGORY);
         int position = intent.getIntExtra(Home.EXTRA_POSITION, 0);
 
-        ViewPagerCategoryAdapter adapter= new ViewPagerCategoryAdapter(
+        ViewPagerCategoryAdapter adapter = new ViewPagerCategoryAdapter(
                 getSupportFragmentManager(), categories);
 
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
-        viewPager.setCurrentItem(position,true);
+        viewPager.setCurrentItem(position, true);
         adapter.notifyDataSetChanged();
+
+
 
 
     }
 
-
+    //sets toolbar
     private void initActionBar() {
         setSupportActionBar(toolbar);
         setTitle(null);
@@ -69,6 +69,8 @@ public class CategoryActivity extends AppCompatActivity {
         }
     }
 
+
+    //back button in toolbar logic
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -79,10 +81,11 @@ public class CategoryActivity extends AppCompatActivity {
         return true;
     }
 
+    //inflates the toolbar with menu (the search bar)
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.toolbar_menu, menu);
         return true;
     }
+
 }

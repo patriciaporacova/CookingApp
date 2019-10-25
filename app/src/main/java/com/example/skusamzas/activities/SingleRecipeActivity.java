@@ -26,7 +26,7 @@ import butterknife.ButterKnife;
 import static com.example.skusamzas.Fragments.Home.EXTRA_RECIPE;
 
 
-public class SingleRecipeActivity extends YouTubeBaseActivity implements SingleRecipeView {
+public class SingleRecipeActivity extends YouTubeBaseActivity implements SingleRecipeView{
 
     @BindView(R.id.sigle_recipe_ingredients)
     TextView ingredients;
@@ -42,6 +42,8 @@ public class SingleRecipeActivity extends YouTubeBaseActivity implements SingleR
     YouTubePlayerView youTubePlayerView;
     @BindView(R.id.create_shopping_cart)
     Button button;
+    @BindView(R.id.backButton)
+    ImageView backButton;
 
 
     public static final String API_KEY = "AIzaSyD_9Djkhds5Ctz3nWIDG5LXf_k0hv7RIWE";
@@ -64,29 +66,28 @@ public class SingleRecipeActivity extends YouTubeBaseActivity implements SingleR
         SingleRecipePresenter presenter = new SingleRecipePresenter(this);
         presenter.getMealById(mealName);
 
+        backButton.setOnClickListener(v -> onBackPressed());
 
 
     }
 
-    //ytb key ... AIzaSyD_9Djkhds5Ctz3nWIDG5LXf_k0hv7RIWE
-
 
     @Override
     public void setMeal(Meals.Meal meal) {
+
         Picasso.get().load(meal.getStrMealThumb()).into(image);
         title.setText(meal.getStrMeal());
         instruction.setText(meal.getStrInstructions());
+        ingredients.setText(printIngredients(meal.getIngredients()));
 
-        onInitializedListener= new YouTubePlayer.OnInitializedListener(){
+        onInitializedListener = new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
 
                 String url = meal.getStrYoutube();
                 String videoId = url.split("v=")[1];
-                title.setText(videoId);
 
                 youTubePlayer.loadVideo(videoId);
-                youTubePlayer.play();
             }
 
             @Override
@@ -94,22 +95,19 @@ public class SingleRecipeActivity extends YouTubeBaseActivity implements SingleR
 
             }
         };
-
-        youTubePlayerView.setOnClickListener(v -> youTubePlayerView.initialize(API_KEY,onInitializedListener));
+        youTubePlayerView.setOnClickListener(v -> youTubePlayerView.initialize(API_KEY, onInitializedListener));
 
 
         if (meal.getStrTags() != null) {
             tags.setText("tags: " + meal.getStrTags());
         }
 
-        ingredients.setText(printIngredients(meal.getIngredients()));
 
     }
 
 
-
     public String printIngredients(String[][] ingredientsArray) {
-        String newIngredienceList = "•••"+"\n";
+        String newIngredienceList = "•••" + "\n";
         {
             for (int i = 0; i < ingredientsArray.length; i++) {
                 newIngredienceList += "•";
@@ -118,7 +116,7 @@ public class SingleRecipeActivity extends YouTubeBaseActivity implements SingleR
                         if (!(ingredientsArray[i][j].equals(""))) {
                             newIngredienceList += (" " + (ingredientsArray[i][j]));
                         } else {
-                            newIngredienceList+= "••";
+                            newIngredienceList += "••";
                             return newIngredienceList;
                         }
                     }
@@ -134,4 +132,7 @@ public class SingleRecipeActivity extends YouTubeBaseActivity implements SingleR
     public void onErrorLoading(String message) {
 
     }
+
+
+
 }

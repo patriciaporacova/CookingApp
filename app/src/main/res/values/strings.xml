@@ -18,7 +18,7 @@
     <string name="Settings">Profile</string>
 
     <string name="toolbar_search">Search</string>
-    <string name="subtoolbar_save">Add to favourites</string>
+    <string name="subtoolbar_save">Save</string>
     <string name="subtoolbar_myIngredients">My ingredients</string>
     <string name="subtoolbar_home">Home</string>
     <string name="subtoolbar_shoppingList">Shopping Lists</string>

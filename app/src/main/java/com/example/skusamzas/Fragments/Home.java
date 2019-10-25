@@ -44,8 +44,8 @@ public class Home extends Fragment implements HomeView {
     RecyclerView recyclerViewCategory;
 
     HomePresenter presenter;
-
     View view;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -71,8 +71,6 @@ public class Home extends Fragment implements HomeView {
         recipeAdapter.notifyDataSetChanged();
 
         recipeAdapter.setOnItemClickListener((view, position) -> {
-            /*Intent intent = new Intent(getActivity(), SingleRecipeActivity.class);
-            startActivity(intent);*/
 
             TextView mealName= view.findViewById(R.id.mealName);
             Intent intent = new Intent(getActivity(), SingleRecipeActivity.class);
@@ -86,8 +84,8 @@ public class Home extends Fragment implements HomeView {
     public void setCategory(List<Categories.Category> category) {
         CategoryAdapter categoryAdapter = new CategoryAdapter(category);
         recyclerViewCategory.setAdapter(categoryAdapter);
-        FragmentActivity act = getActivity();
-        GridLayoutManager layoutManager = new GridLayoutManager(act, 3, GridLayoutManager.VERTICAL, false);
+
+        GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 3, GridLayoutManager.VERTICAL, false);
         recyclerViewCategory.setLayoutManager(layoutManager);
         recyclerViewCategory.setNestedScrollingEnabled(true);
         categoryAdapter.notifyDataSetChanged();
