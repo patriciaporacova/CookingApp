@@ -14,7 +14,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.skusamzas.Fragments.FragmentCookingIdeas;
 import com.example.skusamzas.Fragments.Home;
-import com.example.skusamzas.Fragments.IngredienceList;
+import com.example.skusamzas.Fragments.InventoryFragment;
 import com.example.skusamzas.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Home()).commit();
                         break;
                     case R.id.ingredients:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new IngredienceList()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new InventoryFragment()).commit();
                         break;
                     case R.id.shopList:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentCookingIdeas()).commit();

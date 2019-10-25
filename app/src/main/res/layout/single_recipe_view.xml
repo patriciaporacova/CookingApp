@@ -19,13 +19,11 @@
             android:layout_height="match_parent">
 
 
-
             <ImageView
                 android:id="@+id/single_recipe_image"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/pancakes"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:layout_editor_absoluteX="0dp"></ImageView>
 
@@ -45,7 +43,6 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/single_recipe_image"
                 android:layout_marginTop="20dp"
-                android:text="Pancakes"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="22sp"
@@ -53,12 +50,14 @@
 
             <TextView
                 android:id="@+id/single_recipe_tags"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="random tag | random tag"
+                android:layout_marginTop="1dp"
+                android:text="@string/tags"
                 android:textAlignment="center"
                 android:textAllCaps="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/single_recipe_title"></TextView>
 
             <TextView
@@ -70,28 +69,32 @@
                 app:layout_constraintTop_toBottomOf="@+id/single_recipe_tags"></TextView>
 
 
-            <View
+            <com.google.android.youtube.player.YouTubePlayerView
                 android:id="@+id/youtube_recipe"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/single_recipe_timeandservings"
-                android:background="@color/colorPrimary">
-
-            </View>
-
-            <!--<com.google.android.youtube.player.YouTubePlayerView
-                android:id="@+id/youtube_recipe"
-                android:layout_width="355dp"
-                android:layout_height="200dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginRight="30dp"
+                android:background="@color/colorPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/single_recipe_tags" />-->
+                app:layout_constraintTop_toBottomOf="@+id/single_recipe_timeandservings">
+
+            </com.google.android.youtube.player.YouTubePlayerView>
+
+            <Button
+                android:id="@+id/youtube_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="Play the recipe"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/single_recipe_title_Ingredients"
+                app:layout_constraintTop_toBottomOf="@+id/youtube_recipe" />
 
             <TextView
                 android:id="@+id/single_recipe_title_Ingredients"
@@ -103,15 +106,15 @@
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="22sp"
-                app:layout_constraintTop_toBottomOf="@+id/youtube_recipe"></TextView>
+                app:layout_constraintTop_toBottomOf="@+id/youtube_button"></TextView>
 
             <TextView
                 android:id="@+id/sigle_recipe_ingredients"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/youtube_recipe"
-                android:layout_marginStart="20dp"
-                android:text="• 3 dacoho \n • 4 dacoho ineho \n • 5 este ine \n • 1 neviem coho"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/single_recipe_title_Ingredients" />
 
@@ -121,7 +124,6 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/single_recipe_image"
                 android:layout_marginTop="10dp"
-
                 android:text="Follow the instructions"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
@@ -133,13 +135,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/youtube_recipe"
-                android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="20dp"
                 android:text="@string/instructions"
                 android:textAlignment="viewStart"
-                app:layout_constraintTop_toBottomOf="@+id/single_recipe_title_Instructions"/>
-
+                app:layout_constraintTop_toBottomOf="@+id/single_recipe_title_Instructions" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -151,7 +152,6 @@
         layout="@layout/subtoolbar_single_recipe"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:layout_constraintTop_toBottomOf="@+id/single_recipe_scrollview"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/single_recipe_scrollview" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

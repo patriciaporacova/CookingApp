@@ -10,15 +10,15 @@ import android.widget.Filterable;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.skusamzas.model.ItemInInventoryList;
+import com.example.skusamzas.model.InventoryItem;
 import com.example.skusamzas.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.ViewHolder> implements Filterable {
-    private List<ItemInInventoryList> inventoryList;
-    private List<ItemInInventoryList> inventoryListFull;
+    private List<InventoryItem> inventoryList;
+    private List<InventoryItem> inventoryListFull;
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -30,7 +30,7 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.View
         }
     }
 
-    public InventoryAdapter(List<ItemInInventoryList> inventoryList) {
+    public InventoryAdapter(List<InventoryItem> inventoryList) {
         this.inventoryList = inventoryList;
         inventoryListFull = new ArrayList<>(inventoryList);
     }
@@ -46,7 +46,7 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        ItemInInventoryList currentItem = inventoryList.get(position);
+        InventoryItem currentItem = inventoryList.get(position);
         holder.button.setText(currentItem.getItemName());
     }
 
@@ -67,14 +67,14 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.View
     private Filter filter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
-            List<ItemInInventoryList> filteredList = new ArrayList<>();
+            List<InventoryItem> filteredList = new ArrayList<>();
 
             if (constraint == null || constraint.length() == 0) {
                 filteredList.addAll(inventoryListFull);
             } else {
                 String searchedItem = constraint.toString().toLowerCase().trim();
 
-                for (ItemInInventoryList item : inventoryListFull) {
+                for (InventoryItem item : inventoryListFull) {
                     if (item.getItemName().toLowerCase().contains(searchedItem)) {
                         filteredList.add(item);
                     }

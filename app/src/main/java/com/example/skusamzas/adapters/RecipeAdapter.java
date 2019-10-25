@@ -22,17 +22,17 @@ import butterknife.ButterKnife;
 
 public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder> {
 
-   private List<Recipes> recipeTimesAndServingList;
+    private List<Recipes> recipeTimesAndServingList;
 
 
     private List<Meals.Meal> meals;
     private Context context;
-    private static RecipeAdapter.ClickListener clickListener;
+    private static ClickListener clickListener;
 
     public RecipeAdapter(Context context, List<Meals.Meal> meals, List<Recipes> recipeTimesAndServingList) {
         this.meals = meals;
         this.context = context;
-        this.recipeTimesAndServingList=recipeTimesAndServingList;
+        this.recipeTimesAndServingList = recipeTimesAndServingList;
     }
 
 
@@ -50,7 +50,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
         holder.serving.setText(currentItem.getServings());
         holder.time.setText(currentItem.getTime());
         String strMealThumb = meals.get(i).getStrMealThumb();
-        Picasso.get().load(strMealThumb).placeholder(R.drawable.recipe_img).into(holder.mealThumb);
+        Picasso.get().load(strMealThumb).into(holder.mealThumb);
 
         String strMealName = meals.get(i).getStrMeal();
         holder.mealName.setText(strMealName);
@@ -62,15 +62,9 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
         return meals.size();
     }
 
-    public void setOnItemClickListener(ClickListener clickListener) {
-        RecipeAdapter.clickListener = clickListener;
-    }
 
-    public interface ClickListener {
-        void onClick(View view, int position);
-    }
 
-    static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @BindView(R.id.recipePicture)
         ImageView mealThumb;
         @BindView(R.id.recipeTitle)
@@ -92,11 +86,15 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
 
         @Override
         public void onClick(View v) {
-
+            clickListener.onClick(v, getAdapterPosition());
         }
-
-
-
-
     }
+
+    public void setOnItemClickListener(RecipeAdapter.ClickListener clickListener) {
+        RecipeAdapter.clickListener = clickListener;
+    }
+    public interface ClickListener {
+        void onClick(View view, int position);
+    }
+
 }

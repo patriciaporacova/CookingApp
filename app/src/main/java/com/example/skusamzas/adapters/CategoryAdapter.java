@@ -42,7 +42,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Recycl
     public void onBindViewHolder(@NonNull CategoryAdapter.RecyclerViewHolder viewHolder, int i) {
 
         String strCategoryThum = categories.get(i).getStrCategoryThumb();
-        Picasso.get().load(strCategoryThum).placeholder(R.drawable.pancakes).into(viewHolder.newCatThumb);
+        Picasso.get().load(strCategoryThum).into(viewHolder.newCatThumb);
+
 
         String strCategoryName = categories.get(i).getStrCategory();
         viewHolder.categoryName.setText(strCategoryName);

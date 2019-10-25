@@ -1,10 +1,10 @@
 package com.example.skusamzas.model;
 
-public class ItemInInventoryList {
+public class InventoryItem {
 
     private String itemName;
 
-    public ItemInInventoryList(String itemName){
+    public InventoryItem(String itemName){
         this.itemName=itemName;
     }
 

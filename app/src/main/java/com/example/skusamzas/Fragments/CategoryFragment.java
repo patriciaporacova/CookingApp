@@ -1,10 +1,11 @@
 package com.example.skusamzas.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.skusamzas.R;
+import com.example.skusamzas.activities.SingleRecipeActivity;
 import com.example.skusamzas.adapters.RecipeAdapter;
 import com.example.skusamzas.interfaces.CategoryView;
 import com.example.skusamzas.model.Meals;
@@ -25,6 +27,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.example.skusamzas.Fragments.Home.EXTRA_RECIPE;
 
 public class CategoryFragment extends Fragment implements CategoryView {
 
@@ -66,7 +70,10 @@ public class CategoryFragment extends Fragment implements CategoryView {
   adapter.notifyDataSetChanged();
 
   adapter.setOnItemClickListener((view, position) -> {
-      Toast.makeText(getActivity(), "meal: " +meals.get(position).getStrMeal(), Toast.LENGTH_SHORT).show();
+      TextView mealName= view.findViewById(R.id.single_recipe_title);
+      Intent intent = new Intent(getActivity(), SingleRecipeActivity.class);
+      intent.putExtra(EXTRA_RECIPE, mealName.getText().toString());
+      startActivity(intent);
 
   });
 

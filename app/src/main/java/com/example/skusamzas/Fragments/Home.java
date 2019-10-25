@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,7 +18,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.skusamzas.R;
 import com.example.skusamzas.Utils;
 import com.example.skusamzas.activities.CategoryActivity;
-import com.example.skusamzas.activities.Recipe;
+import com.example.skusamzas.activities.SingleRecipeActivity;
 import com.example.skusamzas.adapters.CategoryAdapter;
 import com.example.skusamzas.adapters.RandomRecipeAdapter;
 import com.example.skusamzas.interfaces.HomeView;
@@ -35,6 +36,7 @@ public class Home extends Fragment implements HomeView {
 
     public static final String EXTRA_CATEGORY = "category";
     public static final String EXTRA_POSITION = "position";
+    public static final String EXTRA_RECIPE = "recipe";
 
     @BindView(R.id.viewPagerHeader)
     ViewPager viewPagerRandomRecipe;
@@ -68,8 +70,13 @@ public class Home extends Fragment implements HomeView {
         viewPagerRandomRecipe.setPadding(20, 0, 150, 0);
         recipeAdapter.notifyDataSetChanged();
 
-        recipeAdapter.setOnItemClickListener((v, position) -> {
-            Intent intent = new Intent(getActivity(), Recipe.class);
+        recipeAdapter.setOnItemClickListener((view, position) -> {
+            /*Intent intent = new Intent(getActivity(), SingleRecipeActivity.class);
+            startActivity(intent);*/
+
+            TextView mealName= view.findViewById(R.id.mealName);
+            Intent intent = new Intent(getActivity(), SingleRecipeActivity.class);
+            intent.putExtra(EXTRA_RECIPE, mealName.getText().toString());
             startActivity(intent);
         });
 
