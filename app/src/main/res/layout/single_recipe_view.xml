@@ -83,18 +83,7 @@
 
             </com.google.android.youtube.player.YouTubePlayerView>
 
-            <Button
-                android:id="@+id/youtube_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"
-                android:text="Play the recipe"
-                android:visibility="visible"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/single_recipe_title_Ingredients"
-                app:layout_constraintTop_toBottomOf="@+id/youtube_recipe" />
+
 
             <TextView
                 android:id="@+id/single_recipe_title_Ingredients"
@@ -102,11 +91,11 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/single_recipe_image"
                 android:layout_marginTop="20dp"
-                android:text="You will need"
+                android:text="@string/ingredients_title"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="22sp"
-                app:layout_constraintTop_toBottomOf="@+id/youtube_button"></TextView>
+                app:layout_constraintTop_toBottomOf="@+id/youtube_recipe"></TextView>
 
             <TextView
                 android:id="@+id/sigle_recipe_ingredients"
@@ -118,17 +107,30 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/single_recipe_title_Ingredients" />
 
+            <Button
+                android:id="@+id/create_shopping_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:text="@string/add_to_shopping_cart"
+                android:visibility="visible"
+                android:background="@color/orange"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/single_recipe_title_Ingredients"
+                app:layout_constraintTop_toBottomOf="@+id/sigle_recipe_ingredients" />
+
             <TextView
                 android:id="@+id/single_recipe_title_Instructions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/single_recipe_image"
                 android:layout_marginTop="10dp"
-                android:text="Follow the instructions"
+                android:text="@string/instructions_title"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="22sp"
-                app:layout_constraintTop_toBottomOf="@+id/sigle_recipe_ingredients"></TextView>
+                app:layout_constraintTop_toBottomOf="@+id/create_shopping_cart"></TextView>
 
             <TextView
                 android:id="@+id/sigle_recipe_instructions"
@@ -138,15 +140,18 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="20dp"
-                android:text="@string/instructions"
-                android:textAlignment="viewStart"
+                android:textAlignment="center"
                 app:layout_constraintTop_toBottomOf="@+id/single_recipe_title_Instructions" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/darkgrey"
+        app:layout_constraintBottom_toBottomOf="@+id/single_recipe_scrollview" />
     <include
         android:id="@+id/recipe_subtoolbar"
         layout="@layout/subtoolbar_single_recipe"

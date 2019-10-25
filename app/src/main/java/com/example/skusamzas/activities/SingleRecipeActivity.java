@@ -40,7 +40,7 @@ public class SingleRecipeActivity extends YouTubeBaseActivity implements SingleR
     TextView instruction;
     @BindView(R.id.youtube_recipe)
     YouTubePlayerView youTubePlayerView;
-    @BindView(R.id.youtube_button)
+    @BindView(R.id.create_shopping_cart)
     Button button;
 
 
@@ -95,7 +95,7 @@ public class SingleRecipeActivity extends YouTubeBaseActivity implements SingleR
             }
         };
 
-        button.setOnClickListener(v -> youTubePlayerView.initialize(API_KEY,onInitializedListener));
+        youTubePlayerView.setOnClickListener(v -> youTubePlayerView.initialize(API_KEY,onInitializedListener));
 
 
         if (meal.getStrTags() != null) {
