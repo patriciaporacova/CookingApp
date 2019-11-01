@@ -39,7 +39,7 @@ public class ShoppingListRepository {
         new DeleteAllNotesAsync(listDao).execute();
     }
 
-    public void deleteItem(){
+    public void deleteItem(ShoppingListItem item){
         new DeleteItemAsyncTask(listDao).execute();
     }
 

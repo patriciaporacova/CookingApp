@@ -21,13 +21,13 @@ public class ShoppingListViewModel extends AndroidViewModel {
         return repository.getAllItems();
     }
 
-    public void insert(final ShoppingListItem item) {
-        repository.insert(item);
+    public void insert(final ShoppingListItem insertItem) {
+        repository.insert(insertItem);
     }
 
     public void deleteAllItems() {
         repository.deleteAllItems();
     }
 
-    public void deleteItem(){repository.deleteItem();}
+    public void deleteItem(final ShoppingListItem deleteItem){repository.deleteItem(deleteItem);}
 }

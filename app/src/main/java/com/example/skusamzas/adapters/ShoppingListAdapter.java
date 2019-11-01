@@ -55,9 +55,8 @@ public class ShoppingListAdapter extends RecyclerView.Adapter<ShoppingListAdapte
         notifyDataSetChanged();
     }
 
-    public void deleteItem(int position) {
-        items.remove(position);
-        notifyItemRemoved(position);
+    public ShoppingListItem getNoteAt(int position) {
+       return items.get(position);
     }
 
 

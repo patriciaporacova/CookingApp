@@ -8,9 +8,10 @@ import com.example.skusamzas.adapters.ShoppingListAdapter;
 
 public class SwipeToDeleteShoppingListItem extends ItemTouchHelper.SimpleCallback {
     private ShoppingListAdapter adapter;
+    private ShoppingListViewModel viewModel;
 
     public SwipeToDeleteShoppingListItem(ShoppingListAdapter adapter) {
-        super(0,ItemTouchHelper.RIGHT);
+        super(0,ItemTouchHelper.LEFT);
         this.adapter = adapter;}
 
     @Override
@@ -21,8 +22,7 @@ public class SwipeToDeleteShoppingListItem extends ItemTouchHelper.SimpleCallbac
     @Override
     public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
 
-        int position = viewHolder.getAdapterPosition();
-        adapter.deleteItem(position);
+        viewModel.deleteItem(adapter.getNoteAt(viewHolder.getAdapterPosition()));
     }
 }
 
