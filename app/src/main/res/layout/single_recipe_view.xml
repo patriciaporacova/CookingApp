@@ -18,16 +18,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
             <ImageView
                 android:id="@+id/single_recipe_image"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="wrap_content"
                 android:scaleType="centerCrop"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:layout_editor_absoluteX="0dp"></ImageView>
-
-
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="40dp"
@@ -46,6 +43,7 @@
                 android:layout_below="@+id/single_recipe_image"
                 android:layout_marginTop="20dp"
                 android:textAlignment="center"
+                android:text="Titlelslf"
                 android:textColor="@android:color/black"
                 android:textSize="22sp"
                 app:layout_constraintTop_toBottomOf="@+id/single_recipe_image"></TextView>
@@ -54,21 +52,58 @@
                 android:id="@+id/single_recipe_tags"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="1dp"
+                android:layout_marginTop="10dp"
                 android:text="@string/tags"
                 android:textAlignment="center"
+                android:textSize="13dp"
                 android:textAllCaps="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/single_recipe_title"></TextView>
 
+
+            <ImageView
+                android:id="@+id/timer"
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="108dp"
+                android:src="@drawable/ic_cooking_time"
+                app:layout_constraintTop_toBottomOf="@+id/single_recipe_tags"
+                app:layout_constraintStart_toStartOf="parent"></ImageView>
+
+
             <TextView
                 android:id="@+id/single_recipe_timeandservings"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10 servings, 30 mins"
+                android:text="10-20"
+                android:textSize="30dp"
+                android:layout_marginLeft="5dp"
                 android:textAlignment="center"
+                app:layout_constraintStart_toEndOf="@+id/timer"
                 app:layout_constraintTop_toBottomOf="@+id/single_recipe_tags"></TextView>
+
+            <ImageView
+                android:id="@+id/servings"
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/ic_serving_dish"
+                app:layout_constraintTop_toBottomOf="@+id/single_recipe_tags"
+                app:layout_constraintStart_toEndOf="@+id/single_recipe_timeandservings"></ImageView>
+
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="5"
+                android:textAlignment="center"
+                android:textSize="30dp"
+                app:layout_constraintStart_toEndOf="@+id/servings"
+                app:layout_constraintTop_toBottomOf="@+id/single_recipe_tags"></TextView>
+
 
 
             <com.google.android.youtube.player.YouTubePlayerView
@@ -82,11 +117,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/single_recipe_timeandservings">
-
             </com.google.android.youtube.player.YouTubePlayerView>
-
-
-
             <TextView
                 android:id="@+id/single_recipe_title_Ingredients"
                 android:layout_width="match_parent"
@@ -98,7 +129,6 @@
                 android:textColor="@android:color/black"
                 android:textSize="22sp"
                 app:layout_constraintTop_toBottomOf="@+id/youtube_recipe"></TextView>
-
             <TextView
                 android:id="@+id/sigle_recipe_ingredients"
                 android:layout_width="wrap_content"
@@ -108,7 +138,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/single_recipe_title_Ingredients" />
-
             <Button
                 android:id="@+id/create_shopping_cart"
                 android:layout_width="wrap_content"
@@ -121,7 +150,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/single_recipe_title_Ingredients"
                 app:layout_constraintTop_toBottomOf="@+id/sigle_recipe_ingredients" />
-
             <TextView
                 android:id="@+id/single_recipe_title_Instructions"
                 android:layout_width="match_parent"
@@ -133,7 +161,6 @@
                 android:textColor="@android:color/black"
                 android:textSize="22sp"
                 app:layout_constraintTop_toBottomOf="@+id/create_shopping_cart"></TextView>
-
             <TextView
                 android:id="@+id/sigle_recipe_instructions"
                 android:layout_width="match_parent"
@@ -144,8 +171,6 @@
                 android:layout_marginRight="20dp"
                 android:textAlignment="center"
                 app:layout_constraintTop_toBottomOf="@+id/single_recipe_title_Instructions" />
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

@@ -10,7 +10,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
@@ -21,10 +20,10 @@ import com.example.skusamzas.activities.CategoryActivity;
 import com.example.skusamzas.activities.SingleRecipeActivity;
 import com.example.skusamzas.adapters.CategoryAdapter;
 import com.example.skusamzas.adapters.RandomRecipeAdapter;
-import com.example.skusamzas.interfaces.HomeView;
 import com.example.skusamzas.model.Categories;
 import com.example.skusamzas.model.Meals;
 import com.example.skusamzas.presenters.HomePresenter;
+import com.example.skusamzas.view.HomeView;
 
 import java.io.Serializable;
 import java.util.List;
@@ -50,7 +49,6 @@ public class Home extends Fragment implements HomeView {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-        FragmentActivity act = getActivity();
         view = inflater.inflate(R.layout.home, container, false);
 
         ButterKnife.bind(this, view);

@@ -2,6 +2,7 @@ package com.example.skusamzas.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -11,7 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.example.skusamzas.R;
-import com.example.skusamzas.interfaces.SingleRecipeView;
+import com.example.skusamzas.view.SingleRecipeView;
 import com.example.skusamzas.model.Meals;
 import com.example.skusamzas.presenters.SingleRecipePresenter;
 import com.google.android.youtube.player.YouTubeBaseActivity;
@@ -27,6 +28,8 @@ import static com.example.skusamzas.Fragments.Home.EXTRA_RECIPE;
 
 
 public class SingleRecipeActivity extends YouTubeBaseActivity implements SingleRecipeView{
+
+
 
     @BindView(R.id.sigle_recipe_ingredients)
     TextView ingredients;
@@ -69,8 +72,21 @@ public class SingleRecipeActivity extends YouTubeBaseActivity implements SingleR
         backButton.setOnClickListener(v -> onBackPressed());
 
 
+
+
+
+
+
     }
 
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+        return true;
+    }
 
     @Override
     public void setMeal(Meals.Meal meal) {

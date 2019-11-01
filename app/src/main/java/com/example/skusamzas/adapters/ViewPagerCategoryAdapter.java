@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.skusamzas.Fragments.CategoryFragment;
+import com.example.skusamzas.Fragments.CategoryTabsFragment;
 import com.example.skusamzas.model.Categories;
 
 import java.util.List;
@@ -26,7 +26,7 @@ public class ViewPagerCategoryAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
 
-        CategoryFragment fragment = new CategoryFragment();
+        CategoryTabsFragment fragment = new CategoryTabsFragment();
         Bundle args = new Bundle();
         args.putString("EXTRA_DATA_NAME", categories.get(position).getStrCategory());
         fragment.setArguments(args);

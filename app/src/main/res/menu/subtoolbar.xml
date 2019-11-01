@@ -9,12 +9,6 @@
         android:title="@string/subtoolbar_home">
     </item>
     <item
-        android:id="@+id/ingredients"
-        android:icon="@drawable/ic_ingrediencelist"
-        app:showAsAction="always"
-        android:title="@string/subtoolbar_myIngredients">
-    </item>
-    <item
         android:id="@+id/saveRecipe"
         android:icon="@drawable/ic_heart"
         app:showAsAction="always"

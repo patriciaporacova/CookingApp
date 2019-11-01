@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.skusamzas.R;
 import com.example.skusamzas.activities.SingleRecipeActivity;
 import com.example.skusamzas.adapters.RecipeAdapter;
-import com.example.skusamzas.interfaces.CategoryView;
+import com.example.skusamzas.view.CategoryView;
 import com.example.skusamzas.model.Meals;
 import com.example.skusamzas.model.Recipes;
 import com.example.skusamzas.presenters.CategoryPresenter;
@@ -29,7 +29,7 @@ import butterknife.ButterKnife;
 
 import static com.example.skusamzas.Fragments.Home.EXTRA_RECIPE;
 
-public class CategoryFragment extends Fragment implements CategoryView {
+public class CategoryTabsFragment extends Fragment implements CategoryView {
 
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;

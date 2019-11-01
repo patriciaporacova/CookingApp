@@ -3,7 +3,7 @@ package com.example.skusamzas.presenters;
 import androidx.annotation.NonNull;
 
 import com.example.skusamzas.Utils;
-import com.example.skusamzas.interfaces.CategoryView;
+import com.example.skusamzas.view.CategoryView;
 import com.example.skusamzas.model.Meals;
 
 import retrofit2.Call;

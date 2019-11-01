@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 
 
 import com.example.skusamzas.Utils;
-import com.example.skusamzas.interfaces.HomeView;
+import com.example.skusamzas.view.HomeView;
 import com.example.skusamzas.model.Categories;
 import com.example.skusamzas.model.Meals;
 
