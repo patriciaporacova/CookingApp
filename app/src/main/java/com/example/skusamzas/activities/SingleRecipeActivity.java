@@ -24,7 +24,7 @@ import com.squareup.picasso.Picasso;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.example.skusamzas.Fragments.Home.EXTRA_RECIPE;
+import static com.example.skusamzas.fragments.Home.EXTRA_RECIPE;
 
 
 public class SingleRecipeActivity extends YouTubeBaseActivity implements SingleRecipeView{

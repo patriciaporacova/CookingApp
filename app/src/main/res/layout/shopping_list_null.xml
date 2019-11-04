@@ -7,15 +7,15 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:src="@drawable/ic_plus_orange"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.312"></ImageView>
+        app:layout_constraintVertical_bias="0.184"></ImageView>
 
     <TextView
         android:id="@+id/textView3"
@@ -43,11 +43,12 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/add_item_text_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Add Item"
+        android:clickable="true"
         android:layout_marginTop="20dp"
         android:textColor="@android:color/holo_red_light"
         android:textSize="22sp"

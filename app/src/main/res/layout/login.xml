@@ -10,15 +10,16 @@
 
 
     <EditText
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
+        style="@style/App_EditTextStyle"
         android:id="@+id/usernameLogin"
-        android:hint="@string/hint_email"/>
+        android:hint="@string/hint_email"
+        />
     <EditText
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
+        style="@style/App_EditTextStyle"
         android:id="@+id/passwordLogin"
-        android:hint="@string/hint_password"/>
+        android:hint="@string/hint_password"
+        android:inputType="textPassword"
+        />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

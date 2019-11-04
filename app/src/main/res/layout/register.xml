@@ -5,30 +5,29 @@
 
 
     <EditText
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
+       style="@style/App_EditTextStyle"
         android:id="@+id/registerName"
         android:hint="@string/hint_name"/>
     <EditText
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
+        style="@style/App_EditTextStyle"
         android:id="@+id/registerEmail"
         android:hint="@string/hint_email"/>
     <EditText
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
+        style="@style/App_EditTextStyle"
         android:id="@+id/registerPassword"
-        android:hint="@string/hint_password"/>
+        android:hint="@string/hint_password"
+        android:inputType="textPassword"/>
     <EditText
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
+        style="@style/App_EditTextStyle"
         android:id="@+id/confirmPassword"
-        android:hint="@string/hint_password_repeat"/>
+        android:hint="@string/hint_password_repeat"
+        android:inputType="textPassword"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_register"
-        android:id="@+id/registerButton"/>
+        android:id="@+id/registerButton"
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

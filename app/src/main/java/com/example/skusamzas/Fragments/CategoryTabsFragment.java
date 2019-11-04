@@ -1,4 +1,4 @@
-package com.example.skusamzas.Fragments;
+package com.example.skusamzas.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,7 +27,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.example.skusamzas.Fragments.Home.EXTRA_RECIPE;
+import static com.example.skusamzas.fragments.Home.EXTRA_RECIPE;
 
 public class CategoryTabsFragment extends Fragment implements CategoryView {
 

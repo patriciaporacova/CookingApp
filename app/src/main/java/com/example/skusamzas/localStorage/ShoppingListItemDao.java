@@ -1,4 +1,4 @@
-package com.example.skusamzas;
+package com.example.skusamzas.localStorage;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;

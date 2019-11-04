@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.skusamzas.Fragments.Home;
+import com.example.skusamzas.fragments.Home;
 import com.example.skusamzas.R;
 import com.example.skusamzas.adapters.CategoryAdapter;
 import com.example.skusamzas.adapters.ViewPagerCategoryAdapter;

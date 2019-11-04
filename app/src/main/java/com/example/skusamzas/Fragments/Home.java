@@ -1,4 +1,4 @@
-package com.example.skusamzas.Fragments;
+package com.example.skusamzas.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -64,8 +64,9 @@ public class Home extends Fragment implements HomeView {
     @Override
     public void setMeal(List<Meals.Meal> meal) {
         RandomRecipeAdapter recipeAdapter = new RandomRecipeAdapter(meal);
-        viewPagerRandomRecipe.setAdapter(recipeAdapter);
+
         viewPagerRandomRecipe.setPadding(20, 0, 150, 0);
+        viewPagerRandomRecipe.setAdapter(recipeAdapter);
         recipeAdapter.notifyDataSetChanged();
 
         recipeAdapter.setOnItemClickListener((view, position) -> {
@@ -81,11 +82,12 @@ public class Home extends Fragment implements HomeView {
     @Override
     public void setCategory(List<Categories.Category> category) {
         CategoryAdapter categoryAdapter = new CategoryAdapter(category);
-        recyclerViewCategory.setAdapter(categoryAdapter);
+
 
         GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 3, GridLayoutManager.VERTICAL, false);
         recyclerViewCategory.setLayoutManager(layoutManager);
         recyclerViewCategory.setNestedScrollingEnabled(true);
+        recyclerViewCategory.setAdapter(categoryAdapter);
         categoryAdapter.notifyDataSetChanged();
 
         categoryAdapter.setOnItemClickListener((view, position) -> {

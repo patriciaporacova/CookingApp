@@ -1,4 +1,4 @@
-package com.example.skusamzas.Fragments;
+package com.example.skusamzas.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

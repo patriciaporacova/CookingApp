@@ -12,9 +12,10 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.example.skusamzas.Fragments.FragmentCookingIdeas;
-import com.example.skusamzas.Fragments.Home;
-import com.example.skusamzas.Fragments.ShoppingListFragment;
+import com.example.skusamzas.fragments.EmptyShoppingList;
+import com.example.skusamzas.fragments.FragmentCookingIdeas;
+import com.example.skusamzas.fragments.Home;
+import com.example.skusamzas.fragments.ShoppingListFragment;
 import com.example.skusamzas.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Home()).commit();
                         break;
                     case R.id.shopList:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ShoppingListFragment()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new EmptyShoppingList()).commit();
                         break;
                 }
                 return true;

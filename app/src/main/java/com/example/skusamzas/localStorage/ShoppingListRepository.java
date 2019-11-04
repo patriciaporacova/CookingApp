@@ -1,4 +1,4 @@
-package com.example.skusamzas;
+package com.example.skusamzas.localStorage;
 
 import android.app.Application;
 import android.os.AsyncTask;
@@ -40,7 +40,7 @@ public class ShoppingListRepository {
     }
 
     public void deleteItem(ShoppingListItem item){
-        new DeleteItemAsyncTask(listDao).execute();
+        new DeleteItemAsyncTask(listDao).execute(item);
     }
 
     private static class InsertNoteAsync extends AsyncTask<ShoppingListItem,Void,Void> {

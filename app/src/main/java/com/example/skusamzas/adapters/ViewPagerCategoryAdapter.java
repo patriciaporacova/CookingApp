@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.skusamzas.Fragments.CategoryTabsFragment;
+import com.example.skusamzas.fragments.CategoryTabsFragment;
 import com.example.skusamzas.model.Categories;
 
 import java.util.List;

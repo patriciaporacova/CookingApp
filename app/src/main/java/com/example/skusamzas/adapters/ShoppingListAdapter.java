@@ -9,15 +9,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.skusamzas.R;
-import com.example.skusamzas.ShoppingListItem;
-import com.example.skusamzas.ShoppingListViewModel;
+import com.example.skusamzas.localStorage.ShoppingListItem;
+import com.example.skusamzas.localStorage.ShoppingListViewModel;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ShoppingListAdapter extends RecyclerView.Adapter<ShoppingListAdapter.RecyclerViewHolder>{
+public class ShoppingListAdapter extends RecyclerView.Adapter<ShoppingListAdapter.RecyclerViewHolder>  {
 
     private List<ShoppingListItem> items;
     private int shoppingListItemLayout;
@@ -39,12 +39,12 @@ public class ShoppingListAdapter extends RecyclerView.Adapter<ShoppingListAdapte
     @Override
     public void onBindViewHolder(@NonNull ShoppingListAdapter.RecyclerViewHolder viewHolder, int i) {
 
-       TextView itemName= viewHolder.itemName;
+        TextView itemName= viewHolder.itemName;
         TextView itemQty= viewHolder.itemQty;
         TextView itemNotes= viewHolder.itemNotes;
 
         itemName.setText(items.get(i).getItemName());
-        itemQty.setText(items.get(i).getQty());
+        itemQty.setText(items.get(i).getQty() +", ");
         itemNotes.setText(items.get(i).getNotes());
 
 
@@ -65,7 +65,10 @@ public class ShoppingListAdapter extends RecyclerView.Adapter<ShoppingListAdapte
         return items == null ? 0 : items.size();
     }
 
-    static class RecyclerViewHolder extends RecyclerView.ViewHolder {
+
+
+
+    static class RecyclerViewHolder extends RecyclerView.ViewHolder  {
         @BindView(R.id.shopping_list_item_name)
         TextView itemName;
         @BindView(R.id.shopping_list_item_qty)

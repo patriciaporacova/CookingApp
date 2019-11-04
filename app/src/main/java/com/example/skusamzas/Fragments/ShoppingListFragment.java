@@ -1,11 +1,11 @@
-package com.example.skusamzas.Fragments;
+package com.example.skusamzas.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,9 +17,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.skusamzas.R;
-import com.example.skusamzas.ShoppingListItem;
-import com.example.skusamzas.ShoppingListViewModel;
-import com.example.skusamzas.SwipeToDeleteShoppingListItem;
+import com.example.skusamzas.localStorage.ShoppingListItem;
+import com.example.skusamzas.localStorage.ShoppingListViewModel;
 import com.example.skusamzas.adapters.ShoppingListAdapter;
 
 import java.util.List;
@@ -32,61 +31,48 @@ public class ShoppingListFragment extends Fragment {
     View view;
     private ShoppingListViewModel mViewModel;
     private ShoppingListAdapter adapter;
-    ShoppingListAdapter shoppingListAdapter;
 
-    @BindView(R.id.add_item_button)
+    ItemTouchHelper itemTouchHelper;
+
+    @BindView(R.id.openPopup)
     Button addButton;
-    @BindView(R.id.add_item_name)
-    EditText itemName;
-    @BindView(R.id.add_item_qty)
-    EditText itemQty;
-    @BindView(R.id.add_item_note)
-    EditText itemNote;
     @BindView(R.id.shopping_list_items_recycler)
     RecyclerView itemsRecycler;
-
 
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+
+        mViewModel = ViewModelProviders.of(this).get(ShoppingListViewModel.class);
+
         view = inflater.inflate(R.layout.shoppin_list_layout, container, false);
 
         ButterKnife.bind(this, view);
 
-        mViewModel= ViewModelProviders.of(this).get(ShoppingListViewModel.class);
-
-        addItem();
-       observeDataChanges();
+        setUpPopUp();
         setItemsRecycler();
+        setSwipeToRemove();
 
+        observeDataChanges();
 
         return view;
 
     }
 
-    private void addItem(){
-        addButton.setOnClickListener(new View.OnClickListener(){
+    private void setUpPopUp() {
+        addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name= itemName.getText().toString();
-                String qty= itemQty.getText().toString();
-                String notes= itemNote.getText().toString();
 
-                ShoppingListItem newItem= new ShoppingListItem(name, qty, notes );
-                mViewModel.insert(newItem);
-                clearFields();
+                openDialog();
             }
         });
     }
 
-    private void clearFields() {
-        itemName.setText("");
-        itemQty.setText("");
-        itemNote.setText("");
-    }
 
-    private void observeDataChanges(){
+    private void observeDataChanges() {
         mViewModel.getAllItems().observe(this, new Observer<List<ShoppingListItem>>() {
             @Override
             public void onChanged(List<ShoppingListItem> shoppingListItems) {
@@ -96,14 +82,35 @@ public class ShoppingListFragment extends Fragment {
 
     }
 
-    private void setItemsRecycler()
-    {
+    private void setItemsRecycler() {
         adapter = new ShoppingListAdapter(R.layout.shopping_list_item);
         itemsRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
         itemsRecycler.setAdapter(adapter);
 
-        ItemTouchHelper itemTouchHelper = new
-                ItemTouchHelper(new SwipeToDeleteShoppingListItem(adapter));
+
+    }
+
+    private void setSwipeToRemove() {
+        itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                mViewModel.deleteItem(adapter.getNoteAt(viewHolder.getAdapterPosition()));
+                Toast.makeText(getActivity(), "Item deleted", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         itemTouchHelper.attachToRecyclerView(itemsRecycler);
     }
+
+    public void openDialog() {
+        ItemDetailsPopup exampleDialog = new ItemDetailsPopup();
+        exampleDialog.show(getFragmentManager(), "example dialog");
+    }
+
+
 }
