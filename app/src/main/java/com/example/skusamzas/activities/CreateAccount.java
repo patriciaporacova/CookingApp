@@ -12,29 +12,40 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.skusamzas.R;
+import com.facebook.login.widget.LoginButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class CreateAccount extends AppCompatActivity {
 
-    private Button registerButton;
-    private EditText registerName, registerEmail, registerPassword, confirmPass;
-    private TextView backToLogin;
     public static String TAG = CreateAccount.class.getSimpleName();
     private String userName;
     private FirebaseAuth mAuth;
     private ProgressDialog mAuthProgressDialog;
+
+    @BindView(R.id.registerName)
+    EditText registerName;
+    @BindView(R.id.registerEmail)
+    EditText registerEmail;
+    @BindView(R.id.registerPassword)
+    EditText registerPassword;
+    @BindView(R.id.confirmPassword)
+    EditText confirmPass;
+    @BindView(R.id.registerButton)
+    Button registerButton;
+    @BindView(R.id.backToLogin)
+    TextView backToLogin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
-        registerButton =  findViewById( R.id.registerButton);
-        registerName =  findViewById(R.id.registerName);
-        registerEmail  = findViewById(R.id.registerEmail);
-        registerPassword= findViewById(R.id.registerPassword);
-        confirmPass = findViewById(R.id.confirmPassword);
-        backToLogin =findViewById(R.id.backToLogin);
+
+        ButterKnife.bind(this);
         mAuth = FirebaseAuth.getInstance();
 
         backToLogin.setOnClickListener(v -> {

@@ -6,6 +6,9 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
 
     </style>
 
@@ -16,10 +19,30 @@
     </style>
 
     <style name="App_EditTextStyle" parent="Widget.AppCompat.EditText">
-        <item name="android:layout_width">250dp</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">350dp</item>
+        <item name="android:textColorHint">@color/white</item>
         <item name="android:imeOptions">actionDone</item>
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">22dp</item>
         <item name="android:singleLine">true</item>
     </style>
 
+    <style name="App_EditTextStylePopUp" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_width">180dp</item>
+        <item name="android:textColorHint">@color/darkgrey</item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="android:backgroundTint">@color/darkgrey</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="App_TextViewRecipe" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">22dp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
 </resources>

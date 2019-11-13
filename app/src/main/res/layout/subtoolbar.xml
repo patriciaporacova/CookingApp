@@ -11,6 +11,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="false"
         android:padding="10dp"
+       app:itemIconTint="@color/icons"
+      app:itemTextColor="@color/icons"
+
 
         app:menu="@menu/subtoolbar">
 

@@ -1,34 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fb="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/login_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/orange"
     android:gravity="center"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="107dp"
+        android:layout_marginTop="56dp"
+        android:src="@drawable/goodyfoodylogo"
+        fb:layout_constraintEnd_toEndOf="parent"
+        fb:layout_constraintHorizontal_bias="0.0"
+        fb:layout_constraintStart_toStartOf="parent"
+        fb:layout_constraintTop_toTopOf="parent"></ImageView>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/HeaderSlogan"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        fb:layout_constraintTop_toBottomOf="@+id/imageView2"></TextView>
 
     <EditText
-        style="@style/App_EditTextStyle"
         android:id="@+id/usernameLogin"
-        android:hint="@string/hint_email"
-        />
-    <EditText
         style="@style/App_EditTextStyle"
+        android:layout_marginTop="48dp"
+        android:hint="@string/hint_email"
+        fb:layout_constraintEnd_toEndOf="parent"
+        fb:layout_constraintHorizontal_bias="0.503"
+        fb:layout_constraintStart_toStartOf="parent"
+        fb:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
         android:id="@+id/passwordLogin"
+        style="@style/App_EditTextStyle"
+        android:layout_marginTop="4dp"
         android:hint="@string/hint_password"
         android:inputType="textPassword"
-        />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_login"
-        android:id="@+id/loginButton"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_register"
-        android:id="@+id/registerTextView"></TextView>
+        fb:layout_constraintEnd_toEndOf="parent"
+        fb:layout_constraintStart_toStartOf="parent"
+        fb:layout_constraintTop_toBottomOf="@+id/usernameLogin" />
 
-</LinearLayout>
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:width="250dp"
+        android:textSize="18dp"
+        android:background="@drawable/custom_button"
+        android:text="@string/button_login"
+        fb:layout_constraintEnd_toEndOf="parent"
+        fb:layout_constraintHorizontal_bias="0.496"
+        fb:layout_constraintStart_toStartOf="parent"
+        fb:layout_constraintTop_toBottomOf="@+id/passwordLogin" />
+
+    /
+
+    <TextView
+        android:id="@+id/registerMess"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/dont_have_account"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        fb:layout_constraintTop_toBottomOf="@+id/loginButton"
+        tools:layout_editor_absoluteX="0dp"></TextView>
+
+    <TextView
+        android:id="@+id/registerTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/button_register"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        fb:layout_constraintTop_toBottomOf="@+id/registerMess"
+        tools:layout_editor_absoluteX="0dp"></TextView>
+
+
+    <TextView
+        android:id="@+id/registerOr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/or"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        fb:layout_constraintTop_toBottomOf="@+id/registerTextView"
+        tools:layout_editor_absoluteX="0dp"></TextView>
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/facebookLoginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        fb:layout_constraintEnd_toEndOf="parent"
+        fb:layout_constraintHorizontal_bias="0.497"
+        fb:layout_constraintStart_toStartOf="parent"
+        fb:layout_constraintTop_toBottomOf="@+id/registerOr" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

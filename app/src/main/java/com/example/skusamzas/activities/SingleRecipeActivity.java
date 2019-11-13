@@ -70,15 +70,7 @@ public class SingleRecipeActivity extends YouTubeBaseActivity implements SingleR
         presenter.getMealById(mealName);
 
         backButton.setOnClickListener(v -> onBackPressed());
-
-
-
-
-
-
-
     }
-
 
 
     @Override

@@ -18,7 +18,7 @@
     <string name="Settings">Profile</string>
 
     <string name="toolbar_search">Search</string>
-    <string name="subtoolbar_save">Save</string>
+    <string name="subtoolbar_save">Saved</string>
     <string name="subtoolbar_myIngredients">My ingredients</string>
     <string name="subtoolbar_home">Home</string>
     <string name="subtoolbar_shoppingList">Shopping Lists</string>
@@ -35,23 +35,22 @@
     <string name="button_login">Log in</string>
     <string name="button_register">Register</string>
 
-    <string name="categories">Pick a category</string>
-    <string name="random_recipes">Recepies of the day</string>
+    <string name="categories">Choose a meal category</string>
+    <string name="random_recipes">10 random recipes</string>
 
     <string name="tags">Tags: </string>
     <string name="add_to_shopping_cart">Create a shopping list </string>
     <string name="instructions_title">Follow the instructions </string>
     <string name="ingredients_title"> You will need </string>
+    <string name="ytb_title">Click below to watch youtube video</string>
+    <string name="firebase_error_login">login with facebook not successfull</string>
 
-
-
-
-
-
-
-
-
-
+    <string name="facebook_app_id">2371279009666863</string>
+    <string name="firebase_success_login">you are logged in with facebook</string>
+    <string name="dont_have_account">Don\'t have an accout yet?</string>
+    <string name="or">or</string>
+    <string name="do_have_account">Do you already have an account?</string>
+    <string name="add_to_cart">add shopping list item </string>
 
 
 </resources>
