@@ -1,10 +1,9 @@
 <resources>
-    <string name="app_name">Yummy</string>
+    <string name="app_name">GoodyFoody</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="menu_cookingIdeas">Cooking Ideas</string>
-    <string name="menu_dinner">Dinners</string>
+    <string name="menu_dinner">Home</string>
     <string name="menu_onePot">One Pot Recipes</string>
     <string name="menu_vegan">Vegan</string>
     <string name="menu_desserts">Desserts</string>
@@ -51,6 +50,7 @@
     <string name="or">or</string>
     <string name="do_have_account">Do you already have an account?</string>
     <string name="add_to_cart">add shopping list item </string>
+    <string name="shopping_list_instructions">Click button to add items to a shopping list, swipe left to remove the items and click on the item name to cross the item out</string>
 
 
 </resources>

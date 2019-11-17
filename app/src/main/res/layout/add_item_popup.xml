@@ -11,6 +11,7 @@
         style="@style/App_EditTextStylePopUp"
         android:hint="Item Name"
         android:id="@+id/add_item_name"
+        android:layout_marginTop="10dp"
         ></EditText>
     <EditText
         style="@style/App_EditTextStylePopUp"
