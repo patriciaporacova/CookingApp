@@ -1,4 +1,4 @@
-package com.example.skusamzas.activities;
+package com.example.skusamzas.firebase_auth;
 
 import android.app.ProgressDialog;
 import android.content.Intent;

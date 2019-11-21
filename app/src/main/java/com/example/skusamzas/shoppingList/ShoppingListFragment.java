@@ -50,8 +50,6 @@ public class ShoppingListFragment extends Fragment {
         setSwipeToRemove();
         observeDataChanges();
 
-
-
         return view;
     }
 
@@ -68,6 +66,7 @@ public class ShoppingListFragment extends Fragment {
         itemsRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
         itemsRecycler.setAdapter(adapter);
 
+        //logic for striking trough items in shopping list
         adapter.setOnItemClickListenerShop((view, position) -> {
 
             TextView item = (TextView) itemsRecycler.findViewHolderForAdapterPosition(position).itemView.findViewById(R.id.shopping_list_item_name);
@@ -80,6 +79,7 @@ public class ShoppingListFragment extends Fragment {
         });
     }
 
+    //swipe to delete logic
     private void setSwipeToRemove() {
         itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
             @Override

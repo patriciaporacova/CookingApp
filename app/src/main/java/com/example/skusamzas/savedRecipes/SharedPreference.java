@@ -20,10 +20,8 @@ public class SharedPreference {
         super();
     }
 
-    // This four methods are used for maintaining favorites.
+    // This method is used for overwriting list of favourites
     public void saveFavorites(Context context, List<String> favorites) {
-
-
 
         settings = context.getSharedPreferences(PREFERENCE_NAME,
                 Context.MODE_PRIVATE);
@@ -37,6 +35,7 @@ public class SharedPreference {
         editor.commit();
     }
 
+    //This method is used for adding to a list of favourites
     public void addFavorite(Context context, String meal) {
         List<String> favorites = getFavorites(context);
         if (favorites == null)
@@ -45,7 +44,7 @@ public class SharedPreference {
         saveFavorites(context, favorites);
     }
 
-
+//This method is used for removing item from list of favourites
     public void removeFavorite(Context context, String meal) {
         List<String> favorites = getFavorites(context);
         if (favorites != null) {
@@ -54,6 +53,7 @@ public class SharedPreference {
         }
     }
 
+    //This method is used for getting the list of favourites
     public List<String> getFavorites(Context context) {
         SharedPreferences settings;
         List<String> favorites;
@@ -74,69 +74,4 @@ public class SharedPreference {
 
         return favorites;
     }
-
-
-
-   /*public void saveFavorites(Context context, List<Meals.Meal> favorites) {
-        SharedPreferences settings;
-        SharedPreferences.Editor editor;
-
-        settings = context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE);
-        editor = settings.edit();
-       // editor.remove(FAVORITES).apply();
-
-        Gson gson = new Gson();
-        String jsonFavorites = gson.toJson(favorites);
-
-        editor.putString(FAVORITS, jsonFavorites);
-
-        editor.commit();
-    }
-
-    public void addFavorite(Context context, Meals.Meal meal) {
-        List<Meals.Meal> favorites = getFavorites(context);
-        if (favorites == null)
-            favorites = new ArrayList<Meals.Meal>();
-        favorites.add(meal);
-        saveFavorites(context, favorites);
-    }
-
-    public void removeFavorite(Context context, Meals.Meal meal) {
-        ArrayList<Meals.Meal> favorites = getFavorites(context);
-        if (favorites != null) {
-            favorites.remove(meal);
-            saveFavorites(context, favorites);
-        }
-    }
-
-    public ArrayList<Meals.Meal> getFavorites(Context context) {
-        SharedPreferences settings;
-        List<Meals.Meal> favorites;
-
-        settings = context.getSharedPreferences(PREFERENCE_NAME,
-                Context.MODE_PRIVATE);
-
-
-        if (settings.contains(FAVORITS)) {
-            String jsonFavorites = settings.getString(FAVORITS, null);
-            Gson gson = new Gson();
-            Meals.Meal[] favoriteItems = gson.fromJson(jsonFavorites, Meals.Meal[].class);
-
-            favorites = Arrays.asList(favoriteItems);
-            favorites = new ArrayList<Meals.Meal>(favorites);
-        } else
-            return null;
-
-        return (ArrayList<Meals.Meal>) favorites;
-    }
-
-    public String getfaveJson(Context context) {
-        SharedPreferences settings;
-        settings = context.getSharedPreferences(PREFERENCE_NAME,
-                Context.MODE_PRIVATE);
-
-        String jsonFavorites = settings.getString(FAVORITS, null);
-
-        return jsonFavorites;
-    }*/
 }

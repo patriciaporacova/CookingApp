@@ -30,6 +30,8 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ViewHold
     private Context context;
     private static ClickListener clickListener;
 
+
+    //takes recipes from mealdb.com, but I wanted to add also time and servings, so I hardcoded list of that as list of Recipes object
     public RecipesAdapter(Context context, List<Meals.Meal> meals, List<Recipes> recipeTimesAndServingList) {
         this.meals = meals;
         this.context = context;

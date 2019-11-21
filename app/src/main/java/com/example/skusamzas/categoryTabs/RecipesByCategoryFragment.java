@@ -76,7 +76,8 @@ public class RecipesByCategoryFragment extends Fragment implements CategoryView 
 
     }
 
-
+//app crashes when this list is not long enough, its and ugly solution, but just for prototype purposes
+    //since I didnt create dbs myself, gotta adjusted it a bit
     private void fillExampleList() {
         recipes = new ArrayList<>();
         recipes.add(new Recipes("4", "20-30"));

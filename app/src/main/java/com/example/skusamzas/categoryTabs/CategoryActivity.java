@@ -39,6 +39,7 @@ public class CategoryActivity extends AppCompatActivity {
         initIntent();
     }
 
+    //opens viewpager on position of category name that was clicked
     private void initIntent() {
         Intent intent = getIntent();
         List<Categories.Category> categories = (List<Categories.Category>) intent.getSerializableExtra(HomeFragment.EXTRA_CATEGORY);
@@ -70,13 +71,6 @@ public class CategoryActivity extends AppCompatActivity {
                 onBackPressed();
                 break;
         }
-        return true;
-    }
-
-    //inflates the toolbar with menu (the search bar)
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
         return true;
     }
 }

@@ -60,6 +60,7 @@ public class SavedRecipeFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
+        //opens up a desired recipe view
         adapter.setOnItemClickListener((view, position) -> {
             Intent intent = new Intent(getActivity(), SingleRecipeActivity.class);
             intent.putExtra(EXTRA_RECIPE, meals.get(position));

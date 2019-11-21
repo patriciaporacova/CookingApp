@@ -12,6 +12,7 @@ import com.example.skusamzas.model.Categories;
 
 import java.util.List;
 
+
 public class CategoryViewPagerTabs extends FragmentPagerAdapter {
 
     private List<Categories.Category> categories;

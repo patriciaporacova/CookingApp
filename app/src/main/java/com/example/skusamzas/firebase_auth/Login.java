@@ -1,4 +1,4 @@
-package com.example.skusamzas.activities;
+package com.example.skusamzas.firebase_auth;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.skusamzas.MainActivity;
 import com.example.skusamzas.R;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;

@@ -52,6 +52,8 @@ public class HomeFragment extends Fragment implements HomeView {
         ButterKnife.bind(this, view);
 
         presenter = new HomePresenter(this);
+
+       //display lists of random meals and all categories
         presenter.getMeals();
         presenter.getCategories();
 
@@ -63,12 +65,14 @@ public class HomeFragment extends Fragment implements HomeView {
     public void setMeal(List<Meals.Meal> meal) {
         RandomRecipeAdapter recipeAdapter = new RandomRecipeAdapter(meal);
 
+        //sets them appart
         viewPagerRandomRecipe.setPadding(20, 0, 150, 0);
         viewPagerRandomRecipe.setAdapter(recipeAdapter);
         recipeAdapter.notifyDataSetChanged();
 
         recipeAdapter.setOnItemClickListener((view, position) -> {
 
+            //opens full recipe view of clicked random recipe
             TextView mealName= view.findViewById(R.id.mealName);
             Intent intent = new Intent(getActivity(), SingleRecipeActivity.class);
             intent.putExtra(EXTRA_RECIPE, mealName.getText().toString());
@@ -88,6 +92,7 @@ public class HomeFragment extends Fragment implements HomeView {
         recyclerViewCategory.setAdapter(categoryAdapter);
         categoryAdapter.notifyDataSetChanged();
 
+        //will open a view pager with recipes by certain category (gotten by position)
         categoryAdapter.setOnItemClickListener((view, position) -> {
             Intent intent = new Intent(getActivity(), CategoryActivity.class);
             intent.putExtra(EXTRA_CATEGORY, (Serializable) category);

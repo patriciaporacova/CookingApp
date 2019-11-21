@@ -5,7 +5,7 @@
 
     <item
         android:id="@+id/toolbar_back_button"
-        android:icon="@drawable/ic_back"
+        android:icon="@drawable/ic_left_arrow"
         android:title="@string/toolbar_search"
         app:showAsAction="ifRoom|collapseActionView">
     </item>
